@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.CargoTransferApplyMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.CargoTransferApply">
+    <id column="Cta_id" jdbcType="INTEGER" property="ctaId" />
+    <result column="Stor_id" jdbcType="INTEGER" property="storId" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="Cta_amount" jdbcType="INTEGER" property="ctaAmount" />
+    <result column="Cta_date" jdbcType="DATE" property="ctaDate" />
+    <result column="Cta_desc" jdbcType="VARCHAR" property="ctaDesc" />
+    <result column="Cta_isReply" jdbcType="VARCHAR" property="ctaIsreply" />
+    <result column="Cta_person" jdbcType="VARCHAR" property="ctaPerson" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Cta_id, Stor_id, Comm_id, Cta_amount, Cta_date, Cta_desc, Cta_isReply, Cta_person
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cargo_transfer_apply
+    where Cta_id = #{ctaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cargo_transfer_apply
+    where Cta_id = #{ctaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.CargoTransferApply">
+    insert into cargo_transfer_apply (Cta_id, Stor_id, Comm_id, 
+      Cta_amount, Cta_date, Cta_desc, 
+      Cta_isReply, Cta_person)
+    values (#{ctaId,jdbcType=INTEGER}, #{storId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, 
+      #{ctaAmount,jdbcType=INTEGER}, #{ctaDate,jdbcType=DATE}, #{ctaDesc,jdbcType=VARCHAR}, 
+      #{ctaIsreply,jdbcType=VARCHAR}, #{ctaPerson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.CargoTransferApply">
+    insert into cargo_transfer_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ctaId != null">
+        Cta_id,
+      </if>
+      <if test="storId != null">
+        Stor_id,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="ctaAmount != null">
+        Cta_amount,
+      </if>
+      <if test="ctaDate != null">
+        Cta_date,
+      </if>
+      <if test="ctaDesc != null">
+        Cta_desc,
+      </if>
+      <if test="ctaIsreply != null">
+        Cta_isReply,
+      </if>
+      <if test="ctaPerson != null">
+        Cta_person,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ctaId != null">
+        #{ctaId,jdbcType=INTEGER},
+      </if>
+      <if test="storId != null">
+        #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="ctaAmount != null">
+        #{ctaAmount,jdbcType=INTEGER},
+      </if>
+      <if test="ctaDate != null">
+        #{ctaDate,jdbcType=DATE},
+      </if>
+      <if test="ctaDesc != null">
+        #{ctaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="ctaIsreply != null">
+        #{ctaIsreply,jdbcType=VARCHAR},
+      </if>
+      <if test="ctaPerson != null">
+        #{ctaPerson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.CargoTransferApply">
+    update cargo_transfer_apply
+    <set>
+      <if test="storId != null">
+        Stor_id = #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="ctaAmount != null">
+        Cta_amount = #{ctaAmount,jdbcType=INTEGER},
+      </if>
+      <if test="ctaDate != null">
+        Cta_date = #{ctaDate,jdbcType=DATE},
+      </if>
+      <if test="ctaDesc != null">
+        Cta_desc = #{ctaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="ctaIsreply != null">
+        Cta_isReply = #{ctaIsreply,jdbcType=VARCHAR},
+      </if>
+      <if test="ctaPerson != null">
+        Cta_person = #{ctaPerson,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Cta_id = #{ctaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.CargoTransferApply">
+    update cargo_transfer_apply
+    set Stor_id = #{storId,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Cta_amount = #{ctaAmount,jdbcType=INTEGER},
+      Cta_date = #{ctaDate,jdbcType=DATE},
+      Cta_desc = #{ctaDesc,jdbcType=VARCHAR},
+      Cta_isReply = #{ctaIsreply,jdbcType=VARCHAR},
+      Cta_person = #{ctaPerson,jdbcType=VARCHAR}
+    where Cta_id = #{ctaId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.CargoTransferApply">
+    <id column="Cta_id" jdbcType="INTEGER" property="ctaId" />
+    <result column="Stor_id" jdbcType="INTEGER" property="storId" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="Cta_amount" jdbcType="INTEGER" property="ctaAmount" />
+    <result column="Cta_date" jdbcType="DATE" property="ctaDate" />
+    <result column="Cta_desc" jdbcType="VARCHAR" property="ctaDesc" />
+    <result column="Cta_isReply" jdbcType="VARCHAR" property="ctaIsreply" />
+    <result column="Cta_person" jdbcType="VARCHAR" property="ctaPerson" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Cta_id, Stor_id, Comm_id, Cta_amount, Cta_date, Cta_desc, Cta_isReply, Cta_person
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cargo_transfer_apply
+    where Cta_id = #{ctaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cargo_transfer_apply
+    where Cta_id = #{ctaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.CargoTransferApply">
+    insert into cargo_transfer_apply (Cta_id, Stor_id, Comm_id, 
+      Cta_amount, Cta_date, Cta_desc, 
+      Cta_isReply, Cta_person)
+    values (#{ctaId,jdbcType=INTEGER}, #{storId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, 
+      #{ctaAmount,jdbcType=INTEGER}, #{ctaDate,jdbcType=DATE}, #{ctaDesc,jdbcType=VARCHAR}, 
+      #{ctaIsreply,jdbcType=VARCHAR}, #{ctaPerson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.CargoTransferApply">
+    insert into cargo_transfer_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ctaId != null">
+        Cta_id,
+      </if>
+      <if test="storId != null">
+        Stor_id,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="ctaAmount != null">
+        Cta_amount,
+      </if>
+      <if test="ctaDate != null">
+        Cta_date,
+      </if>
+      <if test="ctaDesc != null">
+        Cta_desc,
+      </if>
+      <if test="ctaIsreply != null">
+        Cta_isReply,
+      </if>
+      <if test="ctaPerson != null">
+        Cta_person,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ctaId != null">
+        #{ctaId,jdbcType=INTEGER},
+      </if>
+      <if test="storId != null">
+        #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="ctaAmount != null">
+        #{ctaAmount,jdbcType=INTEGER},
+      </if>
+      <if test="ctaDate != null">
+        #{ctaDate,jdbcType=DATE},
+      </if>
+      <if test="ctaDesc != null">
+        #{ctaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="ctaIsreply != null">
+        #{ctaIsreply,jdbcType=VARCHAR},
+      </if>
+      <if test="ctaPerson != null">
+        #{ctaPerson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.CargoTransferApply">
+    update cargo_transfer_apply
+    <set>
+      <if test="storId != null">
+        Stor_id = #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="ctaAmount != null">
+        Cta_amount = #{ctaAmount,jdbcType=INTEGER},
+      </if>
+      <if test="ctaDate != null">
+        Cta_date = #{ctaDate,jdbcType=DATE},
+      </if>
+      <if test="ctaDesc != null">
+        Cta_desc = #{ctaDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="ctaIsreply != null">
+        Cta_isReply = #{ctaIsreply,jdbcType=VARCHAR},
+      </if>
+      <if test="ctaPerson != null">
+        Cta_person = #{ctaPerson,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Cta_id = #{ctaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.CargoTransferApply">
+    update cargo_transfer_apply
+    set Stor_id = #{storId,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Cta_amount = #{ctaAmount,jdbcType=INTEGER},
+      Cta_date = #{ctaDate,jdbcType=DATE},
+      Cta_desc = #{ctaDesc,jdbcType=VARCHAR},
+      Cta_isReply = #{ctaIsreply,jdbcType=VARCHAR},
+      Cta_person = #{ctaPerson,jdbcType=VARCHAR}
+    where Cta_id = #{ctaId,jdbcType=INTEGER}
+  </update>
+</mapper>

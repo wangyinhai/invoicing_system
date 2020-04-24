@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.PosaMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Posa">
+    <id column="posa_id" jdbcType="INTEGER" property="posaId" />
+    <result column="Stor_id" jdbcType="INTEGER" property="storId" />
+    <result column="Posa_pos" jdbcType="INTEGER" property="posaPos" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="Posa_shift" jdbcType="INTEGER" property="posaShift" />
+    <result column="Posa_sale_amount" jdbcType="INTEGER" property="posaSaleAmount" />
+    <result column="Posa_receviable_money" jdbcType="DECIMAL" property="posaReceviableMoney" />
+    <result column="Posa_recevied_money" jdbcType="DECIMAL" property="posaReceviedMoney" />
+    <result column="Posa_price" jdbcType="DECIMAL" property="posaPrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    posa_id, Stor_id, Posa_pos, Comm_id, Posa_shift, Posa_sale_amount, Posa_receviable_money, 
+    Posa_recevied_money, Posa_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from posa
+    where posa_id = #{posaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from posa
+    where posa_id = #{posaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Posa">
+    insert into posa (posa_id, Stor_id, Posa_pos, 
+      Comm_id, Posa_shift, Posa_sale_amount, 
+      Posa_receviable_money, Posa_recevied_money, 
+      Posa_price)
+    values (#{posaId,jdbcType=INTEGER}, #{storId,jdbcType=INTEGER}, #{posaPos,jdbcType=INTEGER}, 
+      #{commId,jdbcType=INTEGER}, #{posaShift,jdbcType=INTEGER}, #{posaSaleAmount,jdbcType=INTEGER}, 
+      #{posaReceviableMoney,jdbcType=DECIMAL}, #{posaReceviedMoney,jdbcType=DECIMAL}, 
+      #{posaPrice,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Posa">
+    insert into posa
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="posaId != null">
+        posa_id,
+      </if>
+      <if test="storId != null">
+        Stor_id,
+      </if>
+      <if test="posaPos != null">
+        Posa_pos,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="posaShift != null">
+        Posa_shift,
+      </if>
+      <if test="posaSaleAmount != null">
+        Posa_sale_amount,
+      </if>
+      <if test="posaReceviableMoney != null">
+        Posa_receviable_money,
+      </if>
+      <if test="posaReceviedMoney != null">
+        Posa_recevied_money,
+      </if>
+      <if test="posaPrice != null">
+        Posa_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="posaId != null">
+        #{posaId,jdbcType=INTEGER},
+      </if>
+      <if test="storId != null">
+        #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="posaPos != null">
+        #{posaPos,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="posaShift != null">
+        #{posaShift,jdbcType=INTEGER},
+      </if>
+      <if test="posaSaleAmount != null">
+        #{posaSaleAmount,jdbcType=INTEGER},
+      </if>
+      <if test="posaReceviableMoney != null">
+        #{posaReceviableMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="posaReceviedMoney != null">
+        #{posaReceviedMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="posaPrice != null">
+        #{posaPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Posa">
+    update posa
+    <set>
+      <if test="storId != null">
+        Stor_id = #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="posaPos != null">
+        Posa_pos = #{posaPos,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="posaShift != null">
+        Posa_shift = #{posaShift,jdbcType=INTEGER},
+      </if>
+      <if test="posaSaleAmount != null">
+        Posa_sale_amount = #{posaSaleAmount,jdbcType=INTEGER},
+      </if>
+      <if test="posaReceviableMoney != null">
+        Posa_receviable_money = #{posaReceviableMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="posaReceviedMoney != null">
+        Posa_recevied_money = #{posaReceviedMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="posaPrice != null">
+        Posa_price = #{posaPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where posa_id = #{posaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Posa">
+    update posa
+    set Stor_id = #{storId,jdbcType=INTEGER},
+      Posa_pos = #{posaPos,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Posa_shift = #{posaShift,jdbcType=INTEGER},
+      Posa_sale_amount = #{posaSaleAmount,jdbcType=INTEGER},
+      Posa_receviable_money = #{posaReceviableMoney,jdbcType=DECIMAL},
+      Posa_recevied_money = #{posaReceviedMoney,jdbcType=DECIMAL},
+      Posa_price = #{posaPrice,jdbcType=DECIMAL}
+    where posa_id = #{posaId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Posa">
+    <id column="posa_id" jdbcType="INTEGER" property="posaId" />
+    <result column="Stor_id" jdbcType="INTEGER" property="storId" />
+    <result column="Posa_pos" jdbcType="INTEGER" property="posaPos" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="Posa_shift" jdbcType="INTEGER" property="posaShift" />
+    <result column="Posa_sale_amount" jdbcType="INTEGER" property="posaSaleAmount" />
+    <result column="Posa_receviable_money" jdbcType="DECIMAL" property="posaReceviableMoney" />
+    <result column="Posa_recevied_money" jdbcType="DECIMAL" property="posaReceviedMoney" />
+    <result column="Posa_price" jdbcType="DECIMAL" property="posaPrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    posa_id, Stor_id, Posa_pos, Comm_id, Posa_shift, Posa_sale_amount, Posa_receviable_money, 
+    Posa_recevied_money, Posa_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from posa
+    where posa_id = #{posaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from posa
+    where posa_id = #{posaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Posa">
+    insert into posa (posa_id, Stor_id, Posa_pos, 
+      Comm_id, Posa_shift, Posa_sale_amount, 
+      Posa_receviable_money, Posa_recevied_money, 
+      Posa_price)
+    values (#{posaId,jdbcType=INTEGER}, #{storId,jdbcType=INTEGER}, #{posaPos,jdbcType=INTEGER}, 
+      #{commId,jdbcType=INTEGER}, #{posaShift,jdbcType=INTEGER}, #{posaSaleAmount,jdbcType=INTEGER}, 
+      #{posaReceviableMoney,jdbcType=DECIMAL}, #{posaReceviedMoney,jdbcType=DECIMAL}, 
+      #{posaPrice,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Posa">
+    insert into posa
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="posaId != null">
+        posa_id,
+      </if>
+      <if test="storId != null">
+        Stor_id,
+      </if>
+      <if test="posaPos != null">
+        Posa_pos,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="posaShift != null">
+        Posa_shift,
+      </if>
+      <if test="posaSaleAmount != null">
+        Posa_sale_amount,
+      </if>
+      <if test="posaReceviableMoney != null">
+        Posa_receviable_money,
+      </if>
+      <if test="posaReceviedMoney != null">
+        Posa_recevied_money,
+      </if>
+      <if test="posaPrice != null">
+        Posa_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="posaId != null">
+        #{posaId,jdbcType=INTEGER},
+      </if>
+      <if test="storId != null">
+        #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="posaPos != null">
+        #{posaPos,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="posaShift != null">
+        #{posaShift,jdbcType=INTEGER},
+      </if>
+      <if test="posaSaleAmount != null">
+        #{posaSaleAmount,jdbcType=INTEGER},
+      </if>
+      <if test="posaReceviableMoney != null">
+        #{posaReceviableMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="posaReceviedMoney != null">
+        #{posaReceviedMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="posaPrice != null">
+        #{posaPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Posa">
+    update posa
+    <set>
+      <if test="storId != null">
+        Stor_id = #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="posaPos != null">
+        Posa_pos = #{posaPos,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="posaShift != null">
+        Posa_shift = #{posaShift,jdbcType=INTEGER},
+      </if>
+      <if test="posaSaleAmount != null">
+        Posa_sale_amount = #{posaSaleAmount,jdbcType=INTEGER},
+      </if>
+      <if test="posaReceviableMoney != null">
+        Posa_receviable_money = #{posaReceviableMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="posaReceviedMoney != null">
+        Posa_recevied_money = #{posaReceviedMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="posaPrice != null">
+        Posa_price = #{posaPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where posa_id = #{posaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Posa">
+    update posa
+    set Stor_id = #{storId,jdbcType=INTEGER},
+      Posa_pos = #{posaPos,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Posa_shift = #{posaShift,jdbcType=INTEGER},
+      Posa_sale_amount = #{posaSaleAmount,jdbcType=INTEGER},
+      Posa_receviable_money = #{posaReceviableMoney,jdbcType=DECIMAL},
+      Posa_recevied_money = #{posaReceviedMoney,jdbcType=DECIMAL},
+      Posa_price = #{posaPrice,jdbcType=DECIMAL}
+    where posa_id = #{posaId,jdbcType=INTEGER}
+  </update>
+</mapper>

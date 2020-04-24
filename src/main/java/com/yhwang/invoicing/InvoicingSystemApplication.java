@@ -1,4 +1,4 @@
-package com.example.invoicing;
+package com.yhwang.invoicing;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

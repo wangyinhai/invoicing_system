@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.PopedomMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Popedom">
+    <id column="Pope_id" jdbcType="INTEGER" property="popeId" />
+    <result column="pope_name" jdbcType="VARCHAR" property="popeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Pope_id, pope_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from popedom
+    where Pope_id = #{popeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from popedom
+    where Pope_id = #{popeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Popedom">
+    insert into popedom (Pope_id, pope_name)
+    values (#{popeId,jdbcType=INTEGER}, #{popeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Popedom">
+    insert into popedom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="popeId != null">
+        Pope_id,
+      </if>
+      <if test="popeName != null">
+        pope_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="popeId != null">
+        #{popeId,jdbcType=INTEGER},
+      </if>
+      <if test="popeName != null">
+        #{popeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Popedom">
+    update popedom
+    <set>
+      <if test="popeName != null">
+        pope_name = #{popeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Pope_id = #{popeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Popedom">
+    update popedom
+    set pope_name = #{popeName,jdbcType=VARCHAR}
+    where Pope_id = #{popeId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Popedom">
+    <id column="Pope_id" jdbcType="INTEGER" property="popeId" />
+    <result column="pope_name" jdbcType="VARCHAR" property="popeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Pope_id, pope_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from popedom
+    where Pope_id = #{popeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from popedom
+    where Pope_id = #{popeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Popedom">
+    insert into popedom (Pope_id, pope_name)
+    values (#{popeId,jdbcType=INTEGER}, #{popeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Popedom">
+    insert into popedom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="popeId != null">
+        Pope_id,
+      </if>
+      <if test="popeName != null">
+        pope_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="popeId != null">
+        #{popeId,jdbcType=INTEGER},
+      </if>
+      <if test="popeName != null">
+        #{popeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Popedom">
+    update popedom
+    <set>
+      <if test="popeName != null">
+        pope_name = #{popeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Pope_id = #{popeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Popedom">
+    update popedom
+    set pope_name = #{popeName,jdbcType=VARCHAR}
+    where Pope_id = #{popeId,jdbcType=INTEGER}
+  </update>
+</mapper>

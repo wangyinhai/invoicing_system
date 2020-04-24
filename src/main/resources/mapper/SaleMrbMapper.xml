@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.SaleMrbMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.SaleMrb">
+    <id column="sm_id" jdbcType="INTEGER" property="smId" />
+    <result column="so_id" jdbcType="INTEGER" property="soId" />
+    <result column="Sm_amout" jdbcType="INTEGER" property="smAmout" />
+    <result column="Sale_price" jdbcType="DECIMAL" property="salePrice" />
+    <result column="depo_id" jdbcType="INTEGER" property="depoId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sm_id, so_id, Sm_amout, Sale_price, depo_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sale_mrb
+    where sm_id = #{smId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sale_mrb
+    where sm_id = #{smId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.SaleMrb">
+    insert into sale_mrb (sm_id, so_id, Sm_amout, 
+      Sale_price, depo_id)
+    values (#{smId,jdbcType=INTEGER}, #{soId,jdbcType=INTEGER}, #{smAmout,jdbcType=INTEGER}, 
+      #{salePrice,jdbcType=DECIMAL}, #{depoId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.SaleMrb">
+    insert into sale_mrb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="smId != null">
+        sm_id,
+      </if>
+      <if test="soId != null">
+        so_id,
+      </if>
+      <if test="smAmout != null">
+        Sm_amout,
+      </if>
+      <if test="salePrice != null">
+        Sale_price,
+      </if>
+      <if test="depoId != null">
+        depo_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="smId != null">
+        #{smId,jdbcType=INTEGER},
+      </if>
+      <if test="soId != null">
+        #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="smAmout != null">
+        #{smAmout,jdbcType=INTEGER},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="depoId != null">
+        #{depoId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.SaleMrb">
+    update sale_mrb
+    <set>
+      <if test="soId != null">
+        so_id = #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="smAmout != null">
+        Sm_amout = #{smAmout,jdbcType=INTEGER},
+      </if>
+      <if test="salePrice != null">
+        Sale_price = #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="depoId != null">
+        depo_id = #{depoId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sm_id = #{smId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.SaleMrb">
+    update sale_mrb
+    set so_id = #{soId,jdbcType=INTEGER},
+      Sm_amout = #{smAmout,jdbcType=INTEGER},
+      Sale_price = #{salePrice,jdbcType=DECIMAL},
+      depo_id = #{depoId,jdbcType=INTEGER}
+    where sm_id = #{smId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.SaleMrb">
+    <id column="sm_id" jdbcType="INTEGER" property="smId" />
+    <result column="so_id" jdbcType="INTEGER" property="soId" />
+    <result column="Sm_amout" jdbcType="INTEGER" property="smAmout" />
+    <result column="Sale_price" jdbcType="DECIMAL" property="salePrice" />
+    <result column="depo_id" jdbcType="INTEGER" property="depoId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sm_id, so_id, Sm_amout, Sale_price, depo_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sale_mrb
+    where sm_id = #{smId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sale_mrb
+    where sm_id = #{smId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.SaleMrb">
+    insert into sale_mrb (sm_id, so_id, Sm_amout, 
+      Sale_price, depo_id)
+    values (#{smId,jdbcType=INTEGER}, #{soId,jdbcType=INTEGER}, #{smAmout,jdbcType=INTEGER}, 
+      #{salePrice,jdbcType=DECIMAL}, #{depoId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.SaleMrb">
+    insert into sale_mrb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="smId != null">
+        sm_id,
+      </if>
+      <if test="soId != null">
+        so_id,
+      </if>
+      <if test="smAmout != null">
+        Sm_amout,
+      </if>
+      <if test="salePrice != null">
+        Sale_price,
+      </if>
+      <if test="depoId != null">
+        depo_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="smId != null">
+        #{smId,jdbcType=INTEGER},
+      </if>
+      <if test="soId != null">
+        #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="smAmout != null">
+        #{smAmout,jdbcType=INTEGER},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="depoId != null">
+        #{depoId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.SaleMrb">
+    update sale_mrb
+    <set>
+      <if test="soId != null">
+        so_id = #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="smAmout != null">
+        Sm_amout = #{smAmout,jdbcType=INTEGER},
+      </if>
+      <if test="salePrice != null">
+        Sale_price = #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="depoId != null">
+        depo_id = #{depoId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sm_id = #{smId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.SaleMrb">
+    update sale_mrb
+    set so_id = #{soId,jdbcType=INTEGER},
+      Sm_amout = #{smAmout,jdbcType=INTEGER},
+      Sale_price = #{salePrice,jdbcType=DECIMAL},
+      depo_id = #{depoId,jdbcType=INTEGER}
+    where sm_id = #{smId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.AccountReceviableMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.AccountReceviable">
+    <id column="ar_id" jdbcType="INTEGER" property="arId" />
+    <result column="Ar_inv" jdbcType="INTEGER" property="arInv" />
+    <result column="Ar_inv_date" jdbcType="DATE" property="arInvDate" />
+    <result column="so_id" jdbcType="INTEGER" property="soId" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="Clie_id" jdbcType="INTEGER" property="clieId" />
+    <result column="Ar_comm_amount" jdbcType="INTEGER" property="arCommAmount" />
+    <result column="Ar_sale_price" jdbcType="DECIMAL" property="arSalePrice" />
+    <result column="Ar_money" jdbcType="DECIMAL" property="arMoney" />
+    <result column="Ar_date" jdbcType="DATE" property="arDate" />
+    <result column="Ar_desc" jdbcType="VARCHAR" property="arDesc" />
+    <result column="Ar_sale_date" jdbcType="DATE" property="arSaleDate" />
+    <result column="isAr" jdbcType="INTEGER" property="isar" />
+    <result column="dr_id" jdbcType="INTEGER" property="drId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ar_id, Ar_inv, Ar_inv_date, so_id, Comm_id, Clie_id, Ar_comm_amount, Ar_sale_price, 
+    Ar_money, Ar_date, Ar_desc, Ar_sale_date, isAr, dr_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from account_receviable
+    where ar_id = #{arId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from account_receviable
+    where ar_id = #{arId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.AccountReceviable">
+    insert into account_receviable (ar_id, Ar_inv, Ar_inv_date, 
+      so_id, Comm_id, Clie_id, 
+      Ar_comm_amount, Ar_sale_price, Ar_money, 
+      Ar_date, Ar_desc, Ar_sale_date, 
+      isAr, dr_id)
+    values (#{arId,jdbcType=INTEGER}, #{arInv,jdbcType=INTEGER}, #{arInvDate,jdbcType=DATE}, 
+      #{soId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, #{clieId,jdbcType=INTEGER}, 
+      #{arCommAmount,jdbcType=INTEGER}, #{arSalePrice,jdbcType=DECIMAL}, #{arMoney,jdbcType=DECIMAL}, 
+      #{arDate,jdbcType=DATE}, #{arDesc,jdbcType=VARCHAR}, #{arSaleDate,jdbcType=DATE}, 
+      #{isar,jdbcType=INTEGER}, #{drId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.AccountReceviable">
+    insert into account_receviable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="arId != null">
+        ar_id,
+      </if>
+      <if test="arInv != null">
+        Ar_inv,
+      </if>
+      <if test="arInvDate != null">
+        Ar_inv_date,
+      </if>
+      <if test="soId != null">
+        so_id,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="clieId != null">
+        Clie_id,
+      </if>
+      <if test="arCommAmount != null">
+        Ar_comm_amount,
+      </if>
+      <if test="arSalePrice != null">
+        Ar_sale_price,
+      </if>
+      <if test="arMoney != null">
+        Ar_money,
+      </if>
+      <if test="arDate != null">
+        Ar_date,
+      </if>
+      <if test="arDesc != null">
+        Ar_desc,
+      </if>
+      <if test="arSaleDate != null">
+        Ar_sale_date,
+      </if>
+      <if test="isar != null">
+        isAr,
+      </if>
+      <if test="drId != null">
+        dr_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="arId != null">
+        #{arId,jdbcType=INTEGER},
+      </if>
+      <if test="arInv != null">
+        #{arInv,jdbcType=INTEGER},
+      </if>
+      <if test="arInvDate != null">
+        #{arInvDate,jdbcType=DATE},
+      </if>
+      <if test="soId != null">
+        #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="clieId != null">
+        #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="arCommAmount != null">
+        #{arCommAmount,jdbcType=INTEGER},
+      </if>
+      <if test="arSalePrice != null">
+        #{arSalePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="arMoney != null">
+        #{arMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="arDate != null">
+        #{arDate,jdbcType=DATE},
+      </if>
+      <if test="arDesc != null">
+        #{arDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="arSaleDate != null">
+        #{arSaleDate,jdbcType=DATE},
+      </if>
+      <if test="isar != null">
+        #{isar,jdbcType=INTEGER},
+      </if>
+      <if test="drId != null">
+        #{drId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.AccountReceviable">
+    update account_receviable
+    <set>
+      <if test="arInv != null">
+        Ar_inv = #{arInv,jdbcType=INTEGER},
+      </if>
+      <if test="arInvDate != null">
+        Ar_inv_date = #{arInvDate,jdbcType=DATE},
+      </if>
+      <if test="soId != null">
+        so_id = #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="clieId != null">
+        Clie_id = #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="arCommAmount != null">
+        Ar_comm_amount = #{arCommAmount,jdbcType=INTEGER},
+      </if>
+      <if test="arSalePrice != null">
+        Ar_sale_price = #{arSalePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="arMoney != null">
+        Ar_money = #{arMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="arDate != null">
+        Ar_date = #{arDate,jdbcType=DATE},
+      </if>
+      <if test="arDesc != null">
+        Ar_desc = #{arDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="arSaleDate != null">
+        Ar_sale_date = #{arSaleDate,jdbcType=DATE},
+      </if>
+      <if test="isar != null">
+        isAr = #{isar,jdbcType=INTEGER},
+      </if>
+      <if test="drId != null">
+        dr_id = #{drId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ar_id = #{arId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.AccountReceviable">
+    update account_receviable
+    set Ar_inv = #{arInv,jdbcType=INTEGER},
+      Ar_inv_date = #{arInvDate,jdbcType=DATE},
+      so_id = #{soId,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Clie_id = #{clieId,jdbcType=INTEGER},
+      Ar_comm_amount = #{arCommAmount,jdbcType=INTEGER},
+      Ar_sale_price = #{arSalePrice,jdbcType=DECIMAL},
+      Ar_money = #{arMoney,jdbcType=DECIMAL},
+      Ar_date = #{arDate,jdbcType=DATE},
+      Ar_desc = #{arDesc,jdbcType=VARCHAR},
+      Ar_sale_date = #{arSaleDate,jdbcType=DATE},
+      isAr = #{isar,jdbcType=INTEGER},
+      dr_id = #{drId,jdbcType=INTEGER}
+    where ar_id = #{arId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.AccountReceviable">
+    <id column="ar_id" jdbcType="INTEGER" property="arId" />
+    <result column="Ar_inv" jdbcType="INTEGER" property="arInv" />
+    <result column="Ar_inv_date" jdbcType="DATE" property="arInvDate" />
+    <result column="so_id" jdbcType="INTEGER" property="soId" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="Clie_id" jdbcType="INTEGER" property="clieId" />
+    <result column="Ar_comm_amount" jdbcType="INTEGER" property="arCommAmount" />
+    <result column="Ar_sale_price" jdbcType="DECIMAL" property="arSalePrice" />
+    <result column="Ar_money" jdbcType="DECIMAL" property="arMoney" />
+    <result column="Ar_date" jdbcType="DATE" property="arDate" />
+    <result column="Ar_desc" jdbcType="VARCHAR" property="arDesc" />
+    <result column="Ar_sale_date" jdbcType="DATE" property="arSaleDate" />
+    <result column="isAr" jdbcType="INTEGER" property="isar" />
+    <result column="dr_id" jdbcType="INTEGER" property="drId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ar_id, Ar_inv, Ar_inv_date, so_id, Comm_id, Clie_id, Ar_comm_amount, Ar_sale_price, 
+    Ar_money, Ar_date, Ar_desc, Ar_sale_date, isAr, dr_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from account_receviable
+    where ar_id = #{arId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from account_receviable
+    where ar_id = #{arId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.AccountReceviable">
+    insert into account_receviable (ar_id, Ar_inv, Ar_inv_date, 
+      so_id, Comm_id, Clie_id, 
+      Ar_comm_amount, Ar_sale_price, Ar_money, 
+      Ar_date, Ar_desc, Ar_sale_date, 
+      isAr, dr_id)
+    values (#{arId,jdbcType=INTEGER}, #{arInv,jdbcType=INTEGER}, #{arInvDate,jdbcType=DATE}, 
+      #{soId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, #{clieId,jdbcType=INTEGER}, 
+      #{arCommAmount,jdbcType=INTEGER}, #{arSalePrice,jdbcType=DECIMAL}, #{arMoney,jdbcType=DECIMAL}, 
+      #{arDate,jdbcType=DATE}, #{arDesc,jdbcType=VARCHAR}, #{arSaleDate,jdbcType=DATE}, 
+      #{isar,jdbcType=INTEGER}, #{drId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.AccountReceviable">
+    insert into account_receviable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="arId != null">
+        ar_id,
+      </if>
+      <if test="arInv != null">
+        Ar_inv,
+      </if>
+      <if test="arInvDate != null">
+        Ar_inv_date,
+      </if>
+      <if test="soId != null">
+        so_id,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="clieId != null">
+        Clie_id,
+      </if>
+      <if test="arCommAmount != null">
+        Ar_comm_amount,
+      </if>
+      <if test="arSalePrice != null">
+        Ar_sale_price,
+      </if>
+      <if test="arMoney != null">
+        Ar_money,
+      </if>
+      <if test="arDate != null">
+        Ar_date,
+      </if>
+      <if test="arDesc != null">
+        Ar_desc,
+      </if>
+      <if test="arSaleDate != null">
+        Ar_sale_date,
+      </if>
+      <if test="isar != null">
+        isAr,
+      </if>
+      <if test="drId != null">
+        dr_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="arId != null">
+        #{arId,jdbcType=INTEGER},
+      </if>
+      <if test="arInv != null">
+        #{arInv,jdbcType=INTEGER},
+      </if>
+      <if test="arInvDate != null">
+        #{arInvDate,jdbcType=DATE},
+      </if>
+      <if test="soId != null">
+        #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="clieId != null">
+        #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="arCommAmount != null">
+        #{arCommAmount,jdbcType=INTEGER},
+      </if>
+      <if test="arSalePrice != null">
+        #{arSalePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="arMoney != null">
+        #{arMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="arDate != null">
+        #{arDate,jdbcType=DATE},
+      </if>
+      <if test="arDesc != null">
+        #{arDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="arSaleDate != null">
+        #{arSaleDate,jdbcType=DATE},
+      </if>
+      <if test="isar != null">
+        #{isar,jdbcType=INTEGER},
+      </if>
+      <if test="drId != null">
+        #{drId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.AccountReceviable">
+    update account_receviable
+    <set>
+      <if test="arInv != null">
+        Ar_inv = #{arInv,jdbcType=INTEGER},
+      </if>
+      <if test="arInvDate != null">
+        Ar_inv_date = #{arInvDate,jdbcType=DATE},
+      </if>
+      <if test="soId != null">
+        so_id = #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="clieId != null">
+        Clie_id = #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="arCommAmount != null">
+        Ar_comm_amount = #{arCommAmount,jdbcType=INTEGER},
+      </if>
+      <if test="arSalePrice != null">
+        Ar_sale_price = #{arSalePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="arMoney != null">
+        Ar_money = #{arMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="arDate != null">
+        Ar_date = #{arDate,jdbcType=DATE},
+      </if>
+      <if test="arDesc != null">
+        Ar_desc = #{arDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="arSaleDate != null">
+        Ar_sale_date = #{arSaleDate,jdbcType=DATE},
+      </if>
+      <if test="isar != null">
+        isAr = #{isar,jdbcType=INTEGER},
+      </if>
+      <if test="drId != null">
+        dr_id = #{drId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ar_id = #{arId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.AccountReceviable">
+    update account_receviable
+    set Ar_inv = #{arInv,jdbcType=INTEGER},
+      Ar_inv_date = #{arInvDate,jdbcType=DATE},
+      so_id = #{soId,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Clie_id = #{clieId,jdbcType=INTEGER},
+      Ar_comm_amount = #{arCommAmount,jdbcType=INTEGER},
+      Ar_sale_price = #{arSalePrice,jdbcType=DECIMAL},
+      Ar_money = #{arMoney,jdbcType=DECIMAL},
+      Ar_date = #{arDate,jdbcType=DATE},
+      Ar_desc = #{arDesc,jdbcType=VARCHAR},
+      Ar_sale_date = #{arSaleDate,jdbcType=DATE},
+      isAr = #{isar,jdbcType=INTEGER},
+      dr_id = #{drId,jdbcType=INTEGER}
+    where ar_id = #{arId,jdbcType=INTEGER}
+  </update>
+</mapper>

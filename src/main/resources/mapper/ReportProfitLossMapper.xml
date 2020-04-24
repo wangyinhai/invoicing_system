@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.ReportProfitLossMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.ReportProfitLoss">
+    <id column="rpl_id" jdbcType="INTEGER" property="rplId" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="depo_id" jdbcType="INTEGER" property="depoId" />
+    <result column="Rpl_amount" jdbcType="INTEGER" property="rplAmount" />
+    <result column="rpl_money" jdbcType="DECIMAL" property="rplMoney" />
+    <result column="Rpl_date" jdbcType="DATE" property="rplDate" />
+    <result column="duty_person" jdbcType="VARCHAR" property="dutyPerson" />
+    <result column="cbill" jdbcType="VARCHAR" property="cbill" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    rpl_id, Comm_id, depo_id, Rpl_amount, rpl_money, Rpl_date, duty_person, cbill
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from report_profit_loss
+    where rpl_id = #{rplId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from report_profit_loss
+    where rpl_id = #{rplId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.ReportProfitLoss">
+    insert into report_profit_loss (rpl_id, Comm_id, depo_id, 
+      Rpl_amount, rpl_money, Rpl_date, 
+      duty_person, cbill)
+    values (#{rplId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, #{depoId,jdbcType=INTEGER}, 
+      #{rplAmount,jdbcType=INTEGER}, #{rplMoney,jdbcType=DECIMAL}, #{rplDate,jdbcType=DATE}, 
+      #{dutyPerson,jdbcType=VARCHAR}, #{cbill,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.ReportProfitLoss">
+    insert into report_profit_loss
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rplId != null">
+        rpl_id,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="depoId != null">
+        depo_id,
+      </if>
+      <if test="rplAmount != null">
+        Rpl_amount,
+      </if>
+      <if test="rplMoney != null">
+        rpl_money,
+      </if>
+      <if test="rplDate != null">
+        Rpl_date,
+      </if>
+      <if test="dutyPerson != null">
+        duty_person,
+      </if>
+      <if test="cbill != null">
+        cbill,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rplId != null">
+        #{rplId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="depoId != null">
+        #{depoId,jdbcType=INTEGER},
+      </if>
+      <if test="rplAmount != null">
+        #{rplAmount,jdbcType=INTEGER},
+      </if>
+      <if test="rplMoney != null">
+        #{rplMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="rplDate != null">
+        #{rplDate,jdbcType=DATE},
+      </if>
+      <if test="dutyPerson != null">
+        #{dutyPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cbill != null">
+        #{cbill,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.ReportProfitLoss">
+    update report_profit_loss
+    <set>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="depoId != null">
+        depo_id = #{depoId,jdbcType=INTEGER},
+      </if>
+      <if test="rplAmount != null">
+        Rpl_amount = #{rplAmount,jdbcType=INTEGER},
+      </if>
+      <if test="rplMoney != null">
+        rpl_money = #{rplMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="rplDate != null">
+        Rpl_date = #{rplDate,jdbcType=DATE},
+      </if>
+      <if test="dutyPerson != null">
+        duty_person = #{dutyPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cbill != null">
+        cbill = #{cbill,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rpl_id = #{rplId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.ReportProfitLoss">
+    update report_profit_loss
+    set Comm_id = #{commId,jdbcType=INTEGER},
+      depo_id = #{depoId,jdbcType=INTEGER},
+      Rpl_amount = #{rplAmount,jdbcType=INTEGER},
+      rpl_money = #{rplMoney,jdbcType=DECIMAL},
+      Rpl_date = #{rplDate,jdbcType=DATE},
+      duty_person = #{dutyPerson,jdbcType=VARCHAR},
+      cbill = #{cbill,jdbcType=VARCHAR}
+    where rpl_id = #{rplId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.ReportProfitLoss">
+    <id column="rpl_id" jdbcType="INTEGER" property="rplId" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="depo_id" jdbcType="INTEGER" property="depoId" />
+    <result column="Rpl_amount" jdbcType="INTEGER" property="rplAmount" />
+    <result column="rpl_money" jdbcType="DECIMAL" property="rplMoney" />
+    <result column="Rpl_date" jdbcType="DATE" property="rplDate" />
+    <result column="duty_person" jdbcType="VARCHAR" property="dutyPerson" />
+    <result column="cbill" jdbcType="VARCHAR" property="cbill" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    rpl_id, Comm_id, depo_id, Rpl_amount, rpl_money, Rpl_date, duty_person, cbill
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from report_profit_loss
+    where rpl_id = #{rplId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from report_profit_loss
+    where rpl_id = #{rplId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.ReportProfitLoss">
+    insert into report_profit_loss (rpl_id, Comm_id, depo_id, 
+      Rpl_amount, rpl_money, Rpl_date, 
+      duty_person, cbill)
+    values (#{rplId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, #{depoId,jdbcType=INTEGER}, 
+      #{rplAmount,jdbcType=INTEGER}, #{rplMoney,jdbcType=DECIMAL}, #{rplDate,jdbcType=DATE}, 
+      #{dutyPerson,jdbcType=VARCHAR}, #{cbill,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.ReportProfitLoss">
+    insert into report_profit_loss
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rplId != null">
+        rpl_id,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="depoId != null">
+        depo_id,
+      </if>
+      <if test="rplAmount != null">
+        Rpl_amount,
+      </if>
+      <if test="rplMoney != null">
+        rpl_money,
+      </if>
+      <if test="rplDate != null">
+        Rpl_date,
+      </if>
+      <if test="dutyPerson != null">
+        duty_person,
+      </if>
+      <if test="cbill != null">
+        cbill,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rplId != null">
+        #{rplId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="depoId != null">
+        #{depoId,jdbcType=INTEGER},
+      </if>
+      <if test="rplAmount != null">
+        #{rplAmount,jdbcType=INTEGER},
+      </if>
+      <if test="rplMoney != null">
+        #{rplMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="rplDate != null">
+        #{rplDate,jdbcType=DATE},
+      </if>
+      <if test="dutyPerson != null">
+        #{dutyPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cbill != null">
+        #{cbill,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.ReportProfitLoss">
+    update report_profit_loss
+    <set>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="depoId != null">
+        depo_id = #{depoId,jdbcType=INTEGER},
+      </if>
+      <if test="rplAmount != null">
+        Rpl_amount = #{rplAmount,jdbcType=INTEGER},
+      </if>
+      <if test="rplMoney != null">
+        rpl_money = #{rplMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="rplDate != null">
+        Rpl_date = #{rplDate,jdbcType=DATE},
+      </if>
+      <if test="dutyPerson != null">
+        duty_person = #{dutyPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cbill != null">
+        cbill = #{cbill,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rpl_id = #{rplId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.ReportProfitLoss">
+    update report_profit_loss
+    set Comm_id = #{commId,jdbcType=INTEGER},
+      depo_id = #{depoId,jdbcType=INTEGER},
+      Rpl_amount = #{rplAmount,jdbcType=INTEGER},
+      rpl_money = #{rplMoney,jdbcType=DECIMAL},
+      Rpl_date = #{rplDate,jdbcType=DATE},
+      duty_person = #{dutyPerson,jdbcType=VARCHAR},
+      cbill = #{cbill,jdbcType=VARCHAR}
+    where rpl_id = #{rplId,jdbcType=INTEGER}
+  </update>
+</mapper>

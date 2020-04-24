@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.SaleOrderItemsMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.SaleOrderItems">
+    <id column="soi_id" jdbcType="INTEGER" property="soiId" />
+    <result column="so_id" jdbcType="INTEGER" property="soId" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="So_amount" jdbcType="VARCHAR" property="soAmount" />
+    <result column="Sale_price" jdbcType="DECIMAL" property="salePrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    soi_id, so_id, Comm_id, So_amount, Sale_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sale_order_items
+    where soi_id = #{soiId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sale_order_items
+    where soi_id = #{soiId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.SaleOrderItems">
+    insert into sale_order_items (soi_id, so_id, Comm_id, 
+      So_amount, Sale_price)
+    values (#{soiId,jdbcType=INTEGER}, #{soId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, 
+      #{soAmount,jdbcType=VARCHAR}, #{salePrice,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.SaleOrderItems">
+    insert into sale_order_items
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="soiId != null">
+        soi_id,
+      </if>
+      <if test="soId != null">
+        so_id,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="soAmount != null">
+        So_amount,
+      </if>
+      <if test="salePrice != null">
+        Sale_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="soiId != null">
+        #{soiId,jdbcType=INTEGER},
+      </if>
+      <if test="soId != null">
+        #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="soAmount != null">
+        #{soAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.SaleOrderItems">
+    update sale_order_items
+    <set>
+      <if test="soId != null">
+        so_id = #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="soAmount != null">
+        So_amount = #{soAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null">
+        Sale_price = #{salePrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where soi_id = #{soiId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.SaleOrderItems">
+    update sale_order_items
+    set so_id = #{soId,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      So_amount = #{soAmount,jdbcType=VARCHAR},
+      Sale_price = #{salePrice,jdbcType=DECIMAL}
+    where soi_id = #{soiId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.SaleOrderItems">
+    <id column="soi_id" jdbcType="INTEGER" property="soiId" />
+    <result column="so_id" jdbcType="INTEGER" property="soId" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="So_amount" jdbcType="VARCHAR" property="soAmount" />
+    <result column="Sale_price" jdbcType="DECIMAL" property="salePrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    soi_id, so_id, Comm_id, So_amount, Sale_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sale_order_items
+    where soi_id = #{soiId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sale_order_items
+    where soi_id = #{soiId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.SaleOrderItems">
+    insert into sale_order_items (soi_id, so_id, Comm_id, 
+      So_amount, Sale_price)
+    values (#{soiId,jdbcType=INTEGER}, #{soId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, 
+      #{soAmount,jdbcType=VARCHAR}, #{salePrice,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.SaleOrderItems">
+    insert into sale_order_items
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="soiId != null">
+        soi_id,
+      </if>
+      <if test="soId != null">
+        so_id,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="soAmount != null">
+        So_amount,
+      </if>
+      <if test="salePrice != null">
+        Sale_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="soiId != null">
+        #{soiId,jdbcType=INTEGER},
+      </if>
+      <if test="soId != null">
+        #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="soAmount != null">
+        #{soAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.SaleOrderItems">
+    update sale_order_items
+    <set>
+      <if test="soId != null">
+        so_id = #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="soAmount != null">
+        So_amount = #{soAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null">
+        Sale_price = #{salePrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where soi_id = #{soiId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.SaleOrderItems">
+    update sale_order_items
+    set so_id = #{soId,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      So_amount = #{soAmount,jdbcType=VARCHAR},
+      Sale_price = #{salePrice,jdbcType=DECIMAL}
+    where soi_id = #{soiId,jdbcType=INTEGER}
+  </update>
+</mapper>

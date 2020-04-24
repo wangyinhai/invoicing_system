@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.UpdatePurchasePriceMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.UpdatePurchasePrice">
+    <id column="upp-id" jdbcType="INTEGER" property="uppId" />
+    <result column="pii_id" jdbcType="INTEGER" property="piiId" />
+    <result column="upp_amount" jdbcType="INTEGER" property="uppAmount" />
+    <result column="old_purchase_price" jdbcType="DECIMAL" property="oldPurchasePrice" />
+    <result column="new_purchase_price" jdbcType="DECIMAL" property="newPurchasePrice" />
+    <result column="upp_date" jdbcType="TIMESTAMP" property="uppDate" />
+    <result column="cbill" jdbcType="VARCHAR" property="cbill" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    upp-id, pii_id, upp_amount, old_purchase_price, new_purchase_price, upp_date, cbill
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from update_purchase_price
+    where upp-id = #{uppId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from update_purchase_price
+    where upp-id = #{uppId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.UpdatePurchasePrice">
+    insert into update_purchase_price (upp-id, pii_id, upp_amount, 
+      old_purchase_price, new_purchase_price, upp_date, 
+      cbill)
+    values (#{uppId,jdbcType=INTEGER}, #{piiId,jdbcType=INTEGER}, #{uppAmount,jdbcType=INTEGER}, 
+      #{oldPurchasePrice,jdbcType=DECIMAL}, #{newPurchasePrice,jdbcType=DECIMAL}, #{uppDate,jdbcType=TIMESTAMP}, 
+      #{cbill,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.UpdatePurchasePrice">
+    insert into update_purchase_price
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uppId != null">
+        upp-id,
+      </if>
+      <if test="piiId != null">
+        pii_id,
+      </if>
+      <if test="uppAmount != null">
+        upp_amount,
+      </if>
+      <if test="oldPurchasePrice != null">
+        old_purchase_price,
+      </if>
+      <if test="newPurchasePrice != null">
+        new_purchase_price,
+      </if>
+      <if test="uppDate != null">
+        upp_date,
+      </if>
+      <if test="cbill != null">
+        cbill,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uppId != null">
+        #{uppId,jdbcType=INTEGER},
+      </if>
+      <if test="piiId != null">
+        #{piiId,jdbcType=INTEGER},
+      </if>
+      <if test="uppAmount != null">
+        #{uppAmount,jdbcType=INTEGER},
+      </if>
+      <if test="oldPurchasePrice != null">
+        #{oldPurchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="newPurchasePrice != null">
+        #{newPurchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="uppDate != null">
+        #{uppDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cbill != null">
+        #{cbill,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.UpdatePurchasePrice">
+    update update_purchase_price
+    <set>
+      <if test="piiId != null">
+        pii_id = #{piiId,jdbcType=INTEGER},
+      </if>
+      <if test="uppAmount != null">
+        upp_amount = #{uppAmount,jdbcType=INTEGER},
+      </if>
+      <if test="oldPurchasePrice != null">
+        old_purchase_price = #{oldPurchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="newPurchasePrice != null">
+        new_purchase_price = #{newPurchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="uppDate != null">
+        upp_date = #{uppDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cbill != null">
+        cbill = #{cbill,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where upp-id = #{uppId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.UpdatePurchasePrice">
+    update update_purchase_price
+    set pii_id = #{piiId,jdbcType=INTEGER},
+      upp_amount = #{uppAmount,jdbcType=INTEGER},
+      old_purchase_price = #{oldPurchasePrice,jdbcType=DECIMAL},
+      new_purchase_price = #{newPurchasePrice,jdbcType=DECIMAL},
+      upp_date = #{uppDate,jdbcType=TIMESTAMP},
+      cbill = #{cbill,jdbcType=VARCHAR}
+    where upp-id = #{uppId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.UpdatePurchasePrice">
+    <id column="upp-id" jdbcType="INTEGER" property="uppId" />
+    <result column="pii_id" jdbcType="INTEGER" property="piiId" />
+    <result column="upp_amount" jdbcType="INTEGER" property="uppAmount" />
+    <result column="old_purchase_price" jdbcType="DECIMAL" property="oldPurchasePrice" />
+    <result column="new_purchase_price" jdbcType="DECIMAL" property="newPurchasePrice" />
+    <result column="upp_date" jdbcType="TIMESTAMP" property="uppDate" />
+    <result column="cbill" jdbcType="VARCHAR" property="cbill" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    upp-id, pii_id, upp_amount, old_purchase_price, new_purchase_price, upp_date, cbill
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from update_purchase_price
+    where upp-id = #{uppId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from update_purchase_price
+    where upp-id = #{uppId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.UpdatePurchasePrice">
+    insert into update_purchase_price (upp-id, pii_id, upp_amount, 
+      old_purchase_price, new_purchase_price, upp_date, 
+      cbill)
+    values (#{uppId,jdbcType=INTEGER}, #{piiId,jdbcType=INTEGER}, #{uppAmount,jdbcType=INTEGER}, 
+      #{oldPurchasePrice,jdbcType=DECIMAL}, #{newPurchasePrice,jdbcType=DECIMAL}, #{uppDate,jdbcType=TIMESTAMP}, 
+      #{cbill,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.UpdatePurchasePrice">
+    insert into update_purchase_price
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uppId != null">
+        upp-id,
+      </if>
+      <if test="piiId != null">
+        pii_id,
+      </if>
+      <if test="uppAmount != null">
+        upp_amount,
+      </if>
+      <if test="oldPurchasePrice != null">
+        old_purchase_price,
+      </if>
+      <if test="newPurchasePrice != null">
+        new_purchase_price,
+      </if>
+      <if test="uppDate != null">
+        upp_date,
+      </if>
+      <if test="cbill != null">
+        cbill,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uppId != null">
+        #{uppId,jdbcType=INTEGER},
+      </if>
+      <if test="piiId != null">
+        #{piiId,jdbcType=INTEGER},
+      </if>
+      <if test="uppAmount != null">
+        #{uppAmount,jdbcType=INTEGER},
+      </if>
+      <if test="oldPurchasePrice != null">
+        #{oldPurchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="newPurchasePrice != null">
+        #{newPurchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="uppDate != null">
+        #{uppDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cbill != null">
+        #{cbill,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.UpdatePurchasePrice">
+    update update_purchase_price
+    <set>
+      <if test="piiId != null">
+        pii_id = #{piiId,jdbcType=INTEGER},
+      </if>
+      <if test="uppAmount != null">
+        upp_amount = #{uppAmount,jdbcType=INTEGER},
+      </if>
+      <if test="oldPurchasePrice != null">
+        old_purchase_price = #{oldPurchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="newPurchasePrice != null">
+        new_purchase_price = #{newPurchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="uppDate != null">
+        upp_date = #{uppDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cbill != null">
+        cbill = #{cbill,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where upp-id = #{uppId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.UpdatePurchasePrice">
+    update update_purchase_price
+    set pii_id = #{piiId,jdbcType=INTEGER},
+      upp_amount = #{uppAmount,jdbcType=INTEGER},
+      old_purchase_price = #{oldPurchasePrice,jdbcType=DECIMAL},
+      new_purchase_price = #{newPurchasePrice,jdbcType=DECIMAL},
+      upp_date = #{uppDate,jdbcType=TIMESTAMP},
+      cbill = #{cbill,jdbcType=VARCHAR}
+    where upp-id = #{uppId,jdbcType=INTEGER}
+  </update>
+</mapper>

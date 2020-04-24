@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.ClientMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Client">
+    <result column="clie_id" jdbcType="INTEGER" property="clieId" />
+    <result column="clie_spell_code" jdbcType="VARCHAR" property="clieSpellCode" />
+    <result column="clie_shortname" jdbcType="VARCHAR" property="clieShortname" />
+    <result column="clie_name" jdbcType="VARCHAR" property="clieName" />
+    <result column="clie_linkman" jdbcType="VARCHAR" property="clieLinkman" />
+    <result column="clie_address" jdbcType="VARCHAR" property="clieAddress" />
+    <result column="Clie_postcode" jdbcType="VARCHAR" property="cliePostcode" />
+    <result column="Clie_tel" jdbcType="VARCHAR" property="clieTel" />
+    <result column="Clie_fax" jdbcType="VARCHAR" property="clieFax" />
+    <result column="Clie_bank" jdbcType="VARCHAR" property="clieBank" />
+    <result column="Clie_iban" jdbcType="VARCHAR" property="clieIban" />
+    <result column="Clie_sort" jdbcType="VARCHAR" property="clieSort" />
+    <result column="oper_id" jdbcType="INTEGER" property="operId" />
+    <result column="Clie_CreditLimt" jdbcType="VARCHAR" property="clieCreditlimt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Client">
+    insert into client (clie_id, clie_spell_code, clie_shortname, 
+      clie_name, clie_linkman, clie_address, 
+      Clie_postcode, Clie_tel, Clie_fax, 
+      Clie_bank, Clie_iban, Clie_sort, 
+      oper_id, Clie_CreditLimt)
+    values (#{clieId,jdbcType=INTEGER}, #{clieSpellCode,jdbcType=VARCHAR}, #{clieShortname,jdbcType=VARCHAR}, 
+      #{clieName,jdbcType=VARCHAR}, #{clieLinkman,jdbcType=VARCHAR}, #{clieAddress,jdbcType=VARCHAR}, 
+      #{cliePostcode,jdbcType=VARCHAR}, #{clieTel,jdbcType=VARCHAR}, #{clieFax,jdbcType=VARCHAR}, 
+      #{clieBank,jdbcType=VARCHAR}, #{clieIban,jdbcType=VARCHAR}, #{clieSort,jdbcType=VARCHAR}, 
+      #{operId,jdbcType=INTEGER}, #{clieCreditlimt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Client">
+    insert into client
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clieId != null">
+        clie_id,
+      </if>
+      <if test="clieSpellCode != null">
+        clie_spell_code,
+      </if>
+      <if test="clieShortname != null">
+        clie_shortname,
+      </if>
+      <if test="clieName != null">
+        clie_name,
+      </if>
+      <if test="clieLinkman != null">
+        clie_linkman,
+      </if>
+      <if test="clieAddress != null">
+        clie_address,
+      </if>
+      <if test="cliePostcode != null">
+        Clie_postcode,
+      </if>
+      <if test="clieTel != null">
+        Clie_tel,
+      </if>
+      <if test="clieFax != null">
+        Clie_fax,
+      </if>
+      <if test="clieBank != null">
+        Clie_bank,
+      </if>
+      <if test="clieIban != null">
+        Clie_iban,
+      </if>
+      <if test="clieSort != null">
+        Clie_sort,
+      </if>
+      <if test="operId != null">
+        oper_id,
+      </if>
+      <if test="clieCreditlimt != null">
+        Clie_CreditLimt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clieId != null">
+        #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="clieSpellCode != null">
+        #{clieSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clieShortname != null">
+        #{clieShortname,jdbcType=VARCHAR},
+      </if>
+      <if test="clieName != null">
+        #{clieName,jdbcType=VARCHAR},
+      </if>
+      <if test="clieLinkman != null">
+        #{clieLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="clieAddress != null">
+        #{clieAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="cliePostcode != null">
+        #{cliePostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="clieTel != null">
+        #{clieTel,jdbcType=VARCHAR},
+      </if>
+      <if test="clieFax != null">
+        #{clieFax,jdbcType=VARCHAR},
+      </if>
+      <if test="clieBank != null">
+        #{clieBank,jdbcType=VARCHAR},
+      </if>
+      <if test="clieIban != null">
+        #{clieIban,jdbcType=VARCHAR},
+      </if>
+      <if test="clieSort != null">
+        #{clieSort,jdbcType=VARCHAR},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="clieCreditlimt != null">
+        #{clieCreditlimt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Client">
+    <result column="clie_id" jdbcType="INTEGER" property="clieId" />
+    <result column="clie_spell_code" jdbcType="VARCHAR" property="clieSpellCode" />
+    <result column="clie_shortname" jdbcType="VARCHAR" property="clieShortname" />
+    <result column="clie_name" jdbcType="VARCHAR" property="clieName" />
+    <result column="clie_linkman" jdbcType="VARCHAR" property="clieLinkman" />
+    <result column="clie_address" jdbcType="VARCHAR" property="clieAddress" />
+    <result column="Clie_postcode" jdbcType="VARCHAR" property="cliePostcode" />
+    <result column="Clie_tel" jdbcType="VARCHAR" property="clieTel" />
+    <result column="Clie_fax" jdbcType="VARCHAR" property="clieFax" />
+    <result column="Clie_bank" jdbcType="VARCHAR" property="clieBank" />
+    <result column="Clie_iban" jdbcType="VARCHAR" property="clieIban" />
+    <result column="Clie_sort" jdbcType="VARCHAR" property="clieSort" />
+    <result column="oper_id" jdbcType="INTEGER" property="operId" />
+    <result column="Clie_CreditLimt" jdbcType="VARCHAR" property="clieCreditlimt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Client">
+    insert into client (clie_id, clie_spell_code, clie_shortname, 
+      clie_name, clie_linkman, clie_address, 
+      Clie_postcode, Clie_tel, Clie_fax, 
+      Clie_bank, Clie_iban, Clie_sort, 
+      oper_id, Clie_CreditLimt)
+    values (#{clieId,jdbcType=INTEGER}, #{clieSpellCode,jdbcType=VARCHAR}, #{clieShortname,jdbcType=VARCHAR}, 
+      #{clieName,jdbcType=VARCHAR}, #{clieLinkman,jdbcType=VARCHAR}, #{clieAddress,jdbcType=VARCHAR}, 
+      #{cliePostcode,jdbcType=VARCHAR}, #{clieTel,jdbcType=VARCHAR}, #{clieFax,jdbcType=VARCHAR}, 
+      #{clieBank,jdbcType=VARCHAR}, #{clieIban,jdbcType=VARCHAR}, #{clieSort,jdbcType=VARCHAR}, 
+      #{operId,jdbcType=INTEGER}, #{clieCreditlimt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Client">
+    insert into client
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clieId != null">
+        clie_id,
+      </if>
+      <if test="clieSpellCode != null">
+        clie_spell_code,
+      </if>
+      <if test="clieShortname != null">
+        clie_shortname,
+      </if>
+      <if test="clieName != null">
+        clie_name,
+      </if>
+      <if test="clieLinkman != null">
+        clie_linkman,
+      </if>
+      <if test="clieAddress != null">
+        clie_address,
+      </if>
+      <if test="cliePostcode != null">
+        Clie_postcode,
+      </if>
+      <if test="clieTel != null">
+        Clie_tel,
+      </if>
+      <if test="clieFax != null">
+        Clie_fax,
+      </if>
+      <if test="clieBank != null">
+        Clie_bank,
+      </if>
+      <if test="clieIban != null">
+        Clie_iban,
+      </if>
+      <if test="clieSort != null">
+        Clie_sort,
+      </if>
+      <if test="operId != null">
+        oper_id,
+      </if>
+      <if test="clieCreditlimt != null">
+        Clie_CreditLimt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clieId != null">
+        #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="clieSpellCode != null">
+        #{clieSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clieShortname != null">
+        #{clieShortname,jdbcType=VARCHAR},
+      </if>
+      <if test="clieName != null">
+        #{clieName,jdbcType=VARCHAR},
+      </if>
+      <if test="clieLinkman != null">
+        #{clieLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="clieAddress != null">
+        #{clieAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="cliePostcode != null">
+        #{cliePostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="clieTel != null">
+        #{clieTel,jdbcType=VARCHAR},
+      </if>
+      <if test="clieFax != null">
+        #{clieFax,jdbcType=VARCHAR},
+      </if>
+      <if test="clieBank != null">
+        #{clieBank,jdbcType=VARCHAR},
+      </if>
+      <if test="clieIban != null">
+        #{clieIban,jdbcType=VARCHAR},
+      </if>
+      <if test="clieSort != null">
+        #{clieSort,jdbcType=VARCHAR},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="clieCreditlimt != null">
+        #{clieCreditlimt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

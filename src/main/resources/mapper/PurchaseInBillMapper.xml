@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.PurchaseInBillMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.PurchaseInBill">
+    <id column="pib_id" jdbcType="INTEGER" property="pibId" />
+    <result column="supp_id" jdbcType="INTEGER" property="suppId" />
+    <result column="pib_date" jdbcType="TIMESTAMP" property="pibDate" />
+    <result column="oper_id" jdbcType="INTEGER" property="operId" />
+    <result column="cbill" jdbcType="VARCHAR" property="cbill" />
+    <result column="inspector" jdbcType="VARCHAR" property="inspector" />
+    <result column="keeper" jdbcType="VARCHAR" property="keeper" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pib_id, supp_id, pib_date, oper_id, cbill, inspector, keeper
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from purchase_in_bill
+    where pib_id = #{pibId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from purchase_in_bill
+    where pib_id = #{pibId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.PurchaseInBill">
+    insert into purchase_in_bill (pib_id, supp_id, pib_date, 
+      oper_id, cbill, inspector, 
+      keeper)
+    values (#{pibId,jdbcType=INTEGER}, #{suppId,jdbcType=INTEGER}, #{pibDate,jdbcType=TIMESTAMP}, 
+      #{operId,jdbcType=INTEGER}, #{cbill,jdbcType=VARCHAR}, #{inspector,jdbcType=VARCHAR}, 
+      #{keeper,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.PurchaseInBill">
+    insert into purchase_in_bill
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pibId != null">
+        pib_id,
+      </if>
+      <if test="suppId != null">
+        supp_id,
+      </if>
+      <if test="pibDate != null">
+        pib_date,
+      </if>
+      <if test="operId != null">
+        oper_id,
+      </if>
+      <if test="cbill != null">
+        cbill,
+      </if>
+      <if test="inspector != null">
+        inspector,
+      </if>
+      <if test="keeper != null">
+        keeper,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pibId != null">
+        #{pibId,jdbcType=INTEGER},
+      </if>
+      <if test="suppId != null">
+        #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="pibDate != null">
+        #{pibDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        #{cbill,jdbcType=VARCHAR},
+      </if>
+      <if test="inspector != null">
+        #{inspector,jdbcType=VARCHAR},
+      </if>
+      <if test="keeper != null">
+        #{keeper,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.PurchaseInBill">
+    update purchase_in_bill
+    <set>
+      <if test="suppId != null">
+        supp_id = #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="pibDate != null">
+        pib_date = #{pibDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operId != null">
+        oper_id = #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        cbill = #{cbill,jdbcType=VARCHAR},
+      </if>
+      <if test="inspector != null">
+        inspector = #{inspector,jdbcType=VARCHAR},
+      </if>
+      <if test="keeper != null">
+        keeper = #{keeper,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pib_id = #{pibId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.PurchaseInBill">
+    update purchase_in_bill
+    set supp_id = #{suppId,jdbcType=INTEGER},
+      pib_date = #{pibDate,jdbcType=TIMESTAMP},
+      oper_id = #{operId,jdbcType=INTEGER},
+      cbill = #{cbill,jdbcType=VARCHAR},
+      inspector = #{inspector,jdbcType=VARCHAR},
+      keeper = #{keeper,jdbcType=VARCHAR}
+    where pib_id = #{pibId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.PurchaseInBill">
+    <id column="pib_id" jdbcType="INTEGER" property="pibId" />
+    <result column="supp_id" jdbcType="INTEGER" property="suppId" />
+    <result column="pib_date" jdbcType="TIMESTAMP" property="pibDate" />
+    <result column="oper_id" jdbcType="INTEGER" property="operId" />
+    <result column="cbill" jdbcType="VARCHAR" property="cbill" />
+    <result column="inspector" jdbcType="VARCHAR" property="inspector" />
+    <result column="keeper" jdbcType="VARCHAR" property="keeper" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pib_id, supp_id, pib_date, oper_id, cbill, inspector, keeper
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from purchase_in_bill
+    where pib_id = #{pibId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from purchase_in_bill
+    where pib_id = #{pibId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.PurchaseInBill">
+    insert into purchase_in_bill (pib_id, supp_id, pib_date, 
+      oper_id, cbill, inspector, 
+      keeper)
+    values (#{pibId,jdbcType=INTEGER}, #{suppId,jdbcType=INTEGER}, #{pibDate,jdbcType=TIMESTAMP}, 
+      #{operId,jdbcType=INTEGER}, #{cbill,jdbcType=VARCHAR}, #{inspector,jdbcType=VARCHAR}, 
+      #{keeper,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.PurchaseInBill">
+    insert into purchase_in_bill
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pibId != null">
+        pib_id,
+      </if>
+      <if test="suppId != null">
+        supp_id,
+      </if>
+      <if test="pibDate != null">
+        pib_date,
+      </if>
+      <if test="operId != null">
+        oper_id,
+      </if>
+      <if test="cbill != null">
+        cbill,
+      </if>
+      <if test="inspector != null">
+        inspector,
+      </if>
+      <if test="keeper != null">
+        keeper,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pibId != null">
+        #{pibId,jdbcType=INTEGER},
+      </if>
+      <if test="suppId != null">
+        #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="pibDate != null">
+        #{pibDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        #{cbill,jdbcType=VARCHAR},
+      </if>
+      <if test="inspector != null">
+        #{inspector,jdbcType=VARCHAR},
+      </if>
+      <if test="keeper != null">
+        #{keeper,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.PurchaseInBill">
+    update purchase_in_bill
+    <set>
+      <if test="suppId != null">
+        supp_id = #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="pibDate != null">
+        pib_date = #{pibDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operId != null">
+        oper_id = #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        cbill = #{cbill,jdbcType=VARCHAR},
+      </if>
+      <if test="inspector != null">
+        inspector = #{inspector,jdbcType=VARCHAR},
+      </if>
+      <if test="keeper != null">
+        keeper = #{keeper,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pib_id = #{pibId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.PurchaseInBill">
+    update purchase_in_bill
+    set supp_id = #{suppId,jdbcType=INTEGER},
+      pib_date = #{pibDate,jdbcType=TIMESTAMP},
+      oper_id = #{operId,jdbcType=INTEGER},
+      cbill = #{cbill,jdbcType=VARCHAR},
+      inspector = #{inspector,jdbcType=VARCHAR},
+      keeper = #{keeper,jdbcType=VARCHAR}
+    where pib_id = #{pibId,jdbcType=INTEGER}
+  </update>
+</mapper>

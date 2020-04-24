@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.SaleOrderMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.SaleOrder">
+    <id column="so_id" jdbcType="INTEGER" property="soId" />
+    <result column="Clie_id" jdbcType="INTEGER" property="clieId" />
+    <result column="So_date" jdbcType="DATE" property="soDate" />
+    <result column="So_begain_date" jdbcType="DATE" property="soBegainDate" />
+    <result column="So_end_date" jdbcType="DATE" property="soEndDate" />
+    <result column="Oper_id" jdbcType="INTEGER" property="operId" />
+    <result column="cbill" jdbcType="VARCHAR" property="cbill" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    so_id, Clie_id, So_date, So_begain_date, So_end_date, Oper_id, cbill
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sale_order
+    where so_id = #{soId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sale_order
+    where so_id = #{soId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.SaleOrder">
+    insert into sale_order (so_id, Clie_id, So_date, 
+      So_begain_date, So_end_date, Oper_id, 
+      cbill)
+    values (#{soId,jdbcType=INTEGER}, #{clieId,jdbcType=INTEGER}, #{soDate,jdbcType=DATE}, 
+      #{soBegainDate,jdbcType=DATE}, #{soEndDate,jdbcType=DATE}, #{operId,jdbcType=INTEGER}, 
+      #{cbill,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.SaleOrder">
+    insert into sale_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="soId != null">
+        so_id,
+      </if>
+      <if test="clieId != null">
+        Clie_id,
+      </if>
+      <if test="soDate != null">
+        So_date,
+      </if>
+      <if test="soBegainDate != null">
+        So_begain_date,
+      </if>
+      <if test="soEndDate != null">
+        So_end_date,
+      </if>
+      <if test="operId != null">
+        Oper_id,
+      </if>
+      <if test="cbill != null">
+        cbill,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="soId != null">
+        #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="clieId != null">
+        #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="soDate != null">
+        #{soDate,jdbcType=DATE},
+      </if>
+      <if test="soBegainDate != null">
+        #{soBegainDate,jdbcType=DATE},
+      </if>
+      <if test="soEndDate != null">
+        #{soEndDate,jdbcType=DATE},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        #{cbill,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.SaleOrder">
+    update sale_order
+    <set>
+      <if test="clieId != null">
+        Clie_id = #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="soDate != null">
+        So_date = #{soDate,jdbcType=DATE},
+      </if>
+      <if test="soBegainDate != null">
+        So_begain_date = #{soBegainDate,jdbcType=DATE},
+      </if>
+      <if test="soEndDate != null">
+        So_end_date = #{soEndDate,jdbcType=DATE},
+      </if>
+      <if test="operId != null">
+        Oper_id = #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        cbill = #{cbill,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where so_id = #{soId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.SaleOrder">
+    update sale_order
+    set Clie_id = #{clieId,jdbcType=INTEGER},
+      So_date = #{soDate,jdbcType=DATE},
+      So_begain_date = #{soBegainDate,jdbcType=DATE},
+      So_end_date = #{soEndDate,jdbcType=DATE},
+      Oper_id = #{operId,jdbcType=INTEGER},
+      cbill = #{cbill,jdbcType=VARCHAR}
+    where so_id = #{soId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.SaleOrder">
+    <id column="so_id" jdbcType="INTEGER" property="soId" />
+    <result column="Clie_id" jdbcType="INTEGER" property="clieId" />
+    <result column="So_date" jdbcType="DATE" property="soDate" />
+    <result column="So_begain_date" jdbcType="DATE" property="soBegainDate" />
+    <result column="So_end_date" jdbcType="DATE" property="soEndDate" />
+    <result column="Oper_id" jdbcType="INTEGER" property="operId" />
+    <result column="cbill" jdbcType="VARCHAR" property="cbill" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    so_id, Clie_id, So_date, So_begain_date, So_end_date, Oper_id, cbill
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sale_order
+    where so_id = #{soId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sale_order
+    where so_id = #{soId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.SaleOrder">
+    insert into sale_order (so_id, Clie_id, So_date, 
+      So_begain_date, So_end_date, Oper_id, 
+      cbill)
+    values (#{soId,jdbcType=INTEGER}, #{clieId,jdbcType=INTEGER}, #{soDate,jdbcType=DATE}, 
+      #{soBegainDate,jdbcType=DATE}, #{soEndDate,jdbcType=DATE}, #{operId,jdbcType=INTEGER}, 
+      #{cbill,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.SaleOrder">
+    insert into sale_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="soId != null">
+        so_id,
+      </if>
+      <if test="clieId != null">
+        Clie_id,
+      </if>
+      <if test="soDate != null">
+        So_date,
+      </if>
+      <if test="soBegainDate != null">
+        So_begain_date,
+      </if>
+      <if test="soEndDate != null">
+        So_end_date,
+      </if>
+      <if test="operId != null">
+        Oper_id,
+      </if>
+      <if test="cbill != null">
+        cbill,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="soId != null">
+        #{soId,jdbcType=INTEGER},
+      </if>
+      <if test="clieId != null">
+        #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="soDate != null">
+        #{soDate,jdbcType=DATE},
+      </if>
+      <if test="soBegainDate != null">
+        #{soBegainDate,jdbcType=DATE},
+      </if>
+      <if test="soEndDate != null">
+        #{soEndDate,jdbcType=DATE},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        #{cbill,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.SaleOrder">
+    update sale_order
+    <set>
+      <if test="clieId != null">
+        Clie_id = #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="soDate != null">
+        So_date = #{soDate,jdbcType=DATE},
+      </if>
+      <if test="soBegainDate != null">
+        So_begain_date = #{soBegainDate,jdbcType=DATE},
+      </if>
+      <if test="soEndDate != null">
+        So_end_date = #{soEndDate,jdbcType=DATE},
+      </if>
+      <if test="operId != null">
+        Oper_id = #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        cbill = #{cbill,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where so_id = #{soId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.SaleOrder">
+    update sale_order
+    set Clie_id = #{clieId,jdbcType=INTEGER},
+      So_date = #{soDate,jdbcType=DATE},
+      So_begain_date = #{soBegainDate,jdbcType=DATE},
+      So_end_date = #{soEndDate,jdbcType=DATE},
+      Oper_id = #{operId,jdbcType=INTEGER},
+      cbill = #{cbill,jdbcType=VARCHAR}
+    where so_id = #{soId,jdbcType=INTEGER}
+  </update>
+</mapper>

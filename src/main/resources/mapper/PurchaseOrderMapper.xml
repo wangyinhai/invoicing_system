@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.PurchaseOrderMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.PurchaseOrder">
+    <id column="po_id" jdbcType="INTEGER" property="poId" />
+    <result column="supp_id" jdbcType="INTEGER" property="suppId" />
+    <result column="po_date" jdbcType="TIMESTAMP" property="poDate" />
+    <result column="po_begain_date" jdbcType="TIMESTAMP" property="poBegainDate" />
+    <result column="po_end_date" jdbcType="TIMESTAMP" property="poEndDate" />
+    <result column="oper_id" jdbcType="INTEGER" property="operId" />
+    <result column="cbill" jdbcType="VARCHAR" property="cbill" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    po_id, supp_id, po_date, po_begain_date, po_end_date, oper_id, cbill
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from purchase_order
+    where po_id = #{poId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from purchase_order
+    where po_id = #{poId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.PurchaseOrder">
+    insert into purchase_order (po_id, supp_id, po_date, 
+      po_begain_date, po_end_date, oper_id, 
+      cbill)
+    values (#{poId,jdbcType=INTEGER}, #{suppId,jdbcType=INTEGER}, #{poDate,jdbcType=TIMESTAMP}, 
+      #{poBegainDate,jdbcType=TIMESTAMP}, #{poEndDate,jdbcType=TIMESTAMP}, #{operId,jdbcType=INTEGER}, 
+      #{cbill,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.PurchaseOrder">
+    insert into purchase_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="poId != null">
+        po_id,
+      </if>
+      <if test="suppId != null">
+        supp_id,
+      </if>
+      <if test="poDate != null">
+        po_date,
+      </if>
+      <if test="poBegainDate != null">
+        po_begain_date,
+      </if>
+      <if test="poEndDate != null">
+        po_end_date,
+      </if>
+      <if test="operId != null">
+        oper_id,
+      </if>
+      <if test="cbill != null">
+        cbill,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="poId != null">
+        #{poId,jdbcType=INTEGER},
+      </if>
+      <if test="suppId != null">
+        #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="poDate != null">
+        #{poDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="poBegainDate != null">
+        #{poBegainDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="poEndDate != null">
+        #{poEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        #{cbill,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.PurchaseOrder">
+    update purchase_order
+    <set>
+      <if test="suppId != null">
+        supp_id = #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="poDate != null">
+        po_date = #{poDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="poBegainDate != null">
+        po_begain_date = #{poBegainDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="poEndDate != null">
+        po_end_date = #{poEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operId != null">
+        oper_id = #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        cbill = #{cbill,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where po_id = #{poId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.PurchaseOrder">
+    update purchase_order
+    set supp_id = #{suppId,jdbcType=INTEGER},
+      po_date = #{poDate,jdbcType=TIMESTAMP},
+      po_begain_date = #{poBegainDate,jdbcType=TIMESTAMP},
+      po_end_date = #{poEndDate,jdbcType=TIMESTAMP},
+      oper_id = #{operId,jdbcType=INTEGER},
+      cbill = #{cbill,jdbcType=VARCHAR}
+    where po_id = #{poId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.PurchaseOrder">
+    <id column="po_id" jdbcType="INTEGER" property="poId" />
+    <result column="supp_id" jdbcType="INTEGER" property="suppId" />
+    <result column="po_date" jdbcType="TIMESTAMP" property="poDate" />
+    <result column="po_begain_date" jdbcType="TIMESTAMP" property="poBegainDate" />
+    <result column="po_end_date" jdbcType="TIMESTAMP" property="poEndDate" />
+    <result column="oper_id" jdbcType="INTEGER" property="operId" />
+    <result column="cbill" jdbcType="VARCHAR" property="cbill" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    po_id, supp_id, po_date, po_begain_date, po_end_date, oper_id, cbill
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from purchase_order
+    where po_id = #{poId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from purchase_order
+    where po_id = #{poId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.PurchaseOrder">
+    insert into purchase_order (po_id, supp_id, po_date, 
+      po_begain_date, po_end_date, oper_id, 
+      cbill)
+    values (#{poId,jdbcType=INTEGER}, #{suppId,jdbcType=INTEGER}, #{poDate,jdbcType=TIMESTAMP}, 
+      #{poBegainDate,jdbcType=TIMESTAMP}, #{poEndDate,jdbcType=TIMESTAMP}, #{operId,jdbcType=INTEGER}, 
+      #{cbill,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.PurchaseOrder">
+    insert into purchase_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="poId != null">
+        po_id,
+      </if>
+      <if test="suppId != null">
+        supp_id,
+      </if>
+      <if test="poDate != null">
+        po_date,
+      </if>
+      <if test="poBegainDate != null">
+        po_begain_date,
+      </if>
+      <if test="poEndDate != null">
+        po_end_date,
+      </if>
+      <if test="operId != null">
+        oper_id,
+      </if>
+      <if test="cbill != null">
+        cbill,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="poId != null">
+        #{poId,jdbcType=INTEGER},
+      </if>
+      <if test="suppId != null">
+        #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="poDate != null">
+        #{poDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="poBegainDate != null">
+        #{poBegainDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="poEndDate != null">
+        #{poEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operId != null">
+        #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        #{cbill,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.PurchaseOrder">
+    update purchase_order
+    <set>
+      <if test="suppId != null">
+        supp_id = #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="poDate != null">
+        po_date = #{poDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="poBegainDate != null">
+        po_begain_date = #{poBegainDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="poEndDate != null">
+        po_end_date = #{poEndDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operId != null">
+        oper_id = #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="cbill != null">
+        cbill = #{cbill,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where po_id = #{poId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.PurchaseOrder">
+    update purchase_order
+    set supp_id = #{suppId,jdbcType=INTEGER},
+      po_date = #{poDate,jdbcType=TIMESTAMP},
+      po_begain_date = #{poBegainDate,jdbcType=TIMESTAMP},
+      po_end_date = #{poEndDate,jdbcType=TIMESTAMP},
+      oper_id = #{operId,jdbcType=INTEGER},
+      cbill = #{cbill,jdbcType=VARCHAR}
+    where po_id = #{poId,jdbcType=INTEGER}
+  </update>
+</mapper>

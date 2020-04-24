@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.DepotMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Depot">
+    <id column="depot_id" jdbcType="INTEGER" property="depotId" />
+    <result column="depot_name" jdbcType="VARCHAR" property="depotName" />
+    <result column="depot_sort" jdbcType="VARCHAR" property="depotSort" />
+    <result column="depot_desc" jdbcType="VARCHAR" property="depotDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    depot_id, depot_name, depot_sort, depot_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from depot
+    where depot_id = #{depotId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from depot
+    where depot_id = #{depotId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Depot">
+    insert into depot (depot_id, depot_name, depot_sort, 
+      depot_desc)
+    values (#{depotId,jdbcType=INTEGER}, #{depotName,jdbcType=VARCHAR}, #{depotSort,jdbcType=VARCHAR}, 
+      #{depotDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Depot">
+    insert into depot
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depotId != null">
+        depot_id,
+      </if>
+      <if test="depotName != null">
+        depot_name,
+      </if>
+      <if test="depotSort != null">
+        depot_sort,
+      </if>
+      <if test="depotDesc != null">
+        depot_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="depotId != null">
+        #{depotId,jdbcType=INTEGER},
+      </if>
+      <if test="depotName != null">
+        #{depotName,jdbcType=VARCHAR},
+      </if>
+      <if test="depotSort != null">
+        #{depotSort,jdbcType=VARCHAR},
+      </if>
+      <if test="depotDesc != null">
+        #{depotDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Depot">
+    update depot
+    <set>
+      <if test="depotName != null">
+        depot_name = #{depotName,jdbcType=VARCHAR},
+      </if>
+      <if test="depotSort != null">
+        depot_sort = #{depotSort,jdbcType=VARCHAR},
+      </if>
+      <if test="depotDesc != null">
+        depot_desc = #{depotDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where depot_id = #{depotId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Depot">
+    update depot
+    set depot_name = #{depotName,jdbcType=VARCHAR},
+      depot_sort = #{depotSort,jdbcType=VARCHAR},
+      depot_desc = #{depotDesc,jdbcType=VARCHAR}
+    where depot_id = #{depotId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Depot">
+    <id column="depot_id" jdbcType="INTEGER" property="depotId" />
+    <result column="depot_name" jdbcType="VARCHAR" property="depotName" />
+    <result column="depot_sort" jdbcType="VARCHAR" property="depotSort" />
+    <result column="depot_desc" jdbcType="VARCHAR" property="depotDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    depot_id, depot_name, depot_sort, depot_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from depot
+    where depot_id = #{depotId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from depot
+    where depot_id = #{depotId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Depot">
+    insert into depot (depot_id, depot_name, depot_sort, 
+      depot_desc)
+    values (#{depotId,jdbcType=INTEGER}, #{depotName,jdbcType=VARCHAR}, #{depotSort,jdbcType=VARCHAR}, 
+      #{depotDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Depot">
+    insert into depot
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depotId != null">
+        depot_id,
+      </if>
+      <if test="depotName != null">
+        depot_name,
+      </if>
+      <if test="depotSort != null">
+        depot_sort,
+      </if>
+      <if test="depotDesc != null">
+        depot_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="depotId != null">
+        #{depotId,jdbcType=INTEGER},
+      </if>
+      <if test="depotName != null">
+        #{depotName,jdbcType=VARCHAR},
+      </if>
+      <if test="depotSort != null">
+        #{depotSort,jdbcType=VARCHAR},
+      </if>
+      <if test="depotDesc != null">
+        #{depotDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Depot">
+    update depot
+    <set>
+      <if test="depotName != null">
+        depot_name = #{depotName,jdbcType=VARCHAR},
+      </if>
+      <if test="depotSort != null">
+        depot_sort = #{depotSort,jdbcType=VARCHAR},
+      </if>
+      <if test="depotDesc != null">
+        depot_desc = #{depotDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where depot_id = #{depotId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Depot">
+    update depot
+    set depot_name = #{depotName,jdbcType=VARCHAR},
+      depot_sort = #{depotSort,jdbcType=VARCHAR},
+      depot_desc = #{depotDesc,jdbcType=VARCHAR}
+    where depot_id = #{depotId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.PurchaseContractMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.PurchaseContract">
+    <id column="pc_id" jdbcType="INTEGER" property="pcId" />
+    <result column="supp_id" jdbcType="INTEGER" property="suppId" />
+    <result column="comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="purc_price" jdbcType="DECIMAL" property="purcPrice" />
+    <result column="pc_pay_method" jdbcType="VARCHAR" property="pcPayMethod" />
+    <result column="pc_pay_period" jdbcType="VARCHAR" property="pcPayPeriod" />
+    <result column="pc_date" jdbcType="TIMESTAMP" property="pcDate" />
+    <result column="pc_period" jdbcType="VARCHAR" property="pcPeriod" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pc_id, supp_id, comm_id, purc_price, pc_pay_method, pc_pay_period, pc_date, pc_period
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from purchase_contract
+    where pc_id = #{pcId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from purchase_contract
+    where pc_id = #{pcId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.PurchaseContract">
+    insert into purchase_contract (pc_id, supp_id, comm_id, 
+      purc_price, pc_pay_method, pc_pay_period, 
+      pc_date, pc_period)
+    values (#{pcId,jdbcType=INTEGER}, #{suppId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, 
+      #{purcPrice,jdbcType=DECIMAL}, #{pcPayMethod,jdbcType=VARCHAR}, #{pcPayPeriod,jdbcType=VARCHAR}, 
+      #{pcDate,jdbcType=TIMESTAMP}, #{pcPeriod,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.PurchaseContract">
+    insert into purchase_contract
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pcId != null">
+        pc_id,
+      </if>
+      <if test="suppId != null">
+        supp_id,
+      </if>
+      <if test="commId != null">
+        comm_id,
+      </if>
+      <if test="purcPrice != null">
+        purc_price,
+      </if>
+      <if test="pcPayMethod != null">
+        pc_pay_method,
+      </if>
+      <if test="pcPayPeriod != null">
+        pc_pay_period,
+      </if>
+      <if test="pcDate != null">
+        pc_date,
+      </if>
+      <if test="pcPeriod != null">
+        pc_period,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pcId != null">
+        #{pcId,jdbcType=INTEGER},
+      </if>
+      <if test="suppId != null">
+        #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="purcPrice != null">
+        #{purcPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="pcPayMethod != null">
+        #{pcPayMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="pcPayPeriod != null">
+        #{pcPayPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="pcDate != null">
+        #{pcDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pcPeriod != null">
+        #{pcPeriod,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.PurchaseContract">
+    update purchase_contract
+    <set>
+      <if test="suppId != null">
+        supp_id = #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="purcPrice != null">
+        purc_price = #{purcPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="pcPayMethod != null">
+        pc_pay_method = #{pcPayMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="pcPayPeriod != null">
+        pc_pay_period = #{pcPayPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="pcDate != null">
+        pc_date = #{pcDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pcPeriod != null">
+        pc_period = #{pcPeriod,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pc_id = #{pcId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.PurchaseContract">
+    update purchase_contract
+    set supp_id = #{suppId,jdbcType=INTEGER},
+      comm_id = #{commId,jdbcType=INTEGER},
+      purc_price = #{purcPrice,jdbcType=DECIMAL},
+      pc_pay_method = #{pcPayMethod,jdbcType=VARCHAR},
+      pc_pay_period = #{pcPayPeriod,jdbcType=VARCHAR},
+      pc_date = #{pcDate,jdbcType=TIMESTAMP},
+      pc_period = #{pcPeriod,jdbcType=VARCHAR}
+    where pc_id = #{pcId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.PurchaseContract">
+    <id column="pc_id" jdbcType="INTEGER" property="pcId" />
+    <result column="supp_id" jdbcType="INTEGER" property="suppId" />
+    <result column="comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="purc_price" jdbcType="DECIMAL" property="purcPrice" />
+    <result column="pc_pay_method" jdbcType="VARCHAR" property="pcPayMethod" />
+    <result column="pc_pay_period" jdbcType="VARCHAR" property="pcPayPeriod" />
+    <result column="pc_date" jdbcType="TIMESTAMP" property="pcDate" />
+    <result column="pc_period" jdbcType="VARCHAR" property="pcPeriod" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pc_id, supp_id, comm_id, purc_price, pc_pay_method, pc_pay_period, pc_date, pc_period
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from purchase_contract
+    where pc_id = #{pcId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from purchase_contract
+    where pc_id = #{pcId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.PurchaseContract">
+    insert into purchase_contract (pc_id, supp_id, comm_id, 
+      purc_price, pc_pay_method, pc_pay_period, 
+      pc_date, pc_period)
+    values (#{pcId,jdbcType=INTEGER}, #{suppId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, 
+      #{purcPrice,jdbcType=DECIMAL}, #{pcPayMethod,jdbcType=VARCHAR}, #{pcPayPeriod,jdbcType=VARCHAR}, 
+      #{pcDate,jdbcType=TIMESTAMP}, #{pcPeriod,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.PurchaseContract">
+    insert into purchase_contract
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pcId != null">
+        pc_id,
+      </if>
+      <if test="suppId != null">
+        supp_id,
+      </if>
+      <if test="commId != null">
+        comm_id,
+      </if>
+      <if test="purcPrice != null">
+        purc_price,
+      </if>
+      <if test="pcPayMethod != null">
+        pc_pay_method,
+      </if>
+      <if test="pcPayPeriod != null">
+        pc_pay_period,
+      </if>
+      <if test="pcDate != null">
+        pc_date,
+      </if>
+      <if test="pcPeriod != null">
+        pc_period,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pcId != null">
+        #{pcId,jdbcType=INTEGER},
+      </if>
+      <if test="suppId != null">
+        #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="purcPrice != null">
+        #{purcPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="pcPayMethod != null">
+        #{pcPayMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="pcPayPeriod != null">
+        #{pcPayPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="pcDate != null">
+        #{pcDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pcPeriod != null">
+        #{pcPeriod,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.PurchaseContract">
+    update purchase_contract
+    <set>
+      <if test="suppId != null">
+        supp_id = #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="purcPrice != null">
+        purc_price = #{purcPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="pcPayMethod != null">
+        pc_pay_method = #{pcPayMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="pcPayPeriod != null">
+        pc_pay_period = #{pcPayPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="pcDate != null">
+        pc_date = #{pcDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pcPeriod != null">
+        pc_period = #{pcPeriod,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pc_id = #{pcId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.PurchaseContract">
+    update purchase_contract
+    set supp_id = #{suppId,jdbcType=INTEGER},
+      comm_id = #{commId,jdbcType=INTEGER},
+      purc_price = #{purcPrice,jdbcType=DECIMAL},
+      pc_pay_method = #{pcPayMethod,jdbcType=VARCHAR},
+      pc_pay_period = #{pcPayPeriod,jdbcType=VARCHAR},
+      pc_date = #{pcDate,jdbcType=TIMESTAMP},
+      pc_period = #{pcPeriod,jdbcType=VARCHAR}
+    where pc_id = #{pcId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.JxcGatherMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.JxcGather">
+    <id column="jg_id" jdbcType="INTEGER" property="jgId" />
+    <result column="jg_date" jdbcType="DATE" property="jgDate" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="Last_checkout_amount" jdbcType="INTEGER" property="lastCheckoutAmount" />
+    <result column="Last_checkout_money" jdbcType="DECIMAL" property="lastCheckoutMoney" />
+    <result column="Debit_amount" jdbcType="INTEGER" property="debitAmount" />
+    <result column="Debit_money" jdbcType="DECIMAL" property="debitMoney" />
+    <result column="Credit_amount" jdbcType="INTEGER" property="creditAmount" />
+    <result column="Credit_money" jdbcType="DECIMAL" property="creditMoney" />
+    <result column="now_checkout_amount" jdbcType="INTEGER" property="nowCheckoutAmount" />
+    <result column="now_cheout_money" jdbcType="DECIMAL" property="nowCheoutMoney" />
+    <result column="Jg_desc" jdbcType="VARCHAR" property="jgDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    jg_id, jg_date, Comm_id, Last_checkout_amount, Last_checkout_money, Debit_amount, 
+    Debit_money, Credit_amount, Credit_money, now_checkout_amount, now_cheout_money, 
+    Jg_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jxc_gather
+    where jg_id = #{jgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jxc_gather
+    where jg_id = #{jgId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.JxcGather">
+    insert into jxc_gather (jg_id, jg_date, Comm_id, 
+      Last_checkout_amount, Last_checkout_money, 
+      Debit_amount, Debit_money, Credit_amount, 
+      Credit_money, now_checkout_amount, now_cheout_money, 
+      Jg_desc)
+    values (#{jgId,jdbcType=INTEGER}, #{jgDate,jdbcType=DATE}, #{commId,jdbcType=INTEGER}, 
+      #{lastCheckoutAmount,jdbcType=INTEGER}, #{lastCheckoutMoney,jdbcType=DECIMAL}, 
+      #{debitAmount,jdbcType=INTEGER}, #{debitMoney,jdbcType=DECIMAL}, #{creditAmount,jdbcType=INTEGER}, 
+      #{creditMoney,jdbcType=DECIMAL}, #{nowCheckoutAmount,jdbcType=INTEGER}, #{nowCheoutMoney,jdbcType=DECIMAL}, 
+      #{jgDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.JxcGather">
+    insert into jxc_gather
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jgId != null">
+        jg_id,
+      </if>
+      <if test="jgDate != null">
+        jg_date,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="lastCheckoutAmount != null">
+        Last_checkout_amount,
+      </if>
+      <if test="lastCheckoutMoney != null">
+        Last_checkout_money,
+      </if>
+      <if test="debitAmount != null">
+        Debit_amount,
+      </if>
+      <if test="debitMoney != null">
+        Debit_money,
+      </if>
+      <if test="creditAmount != null">
+        Credit_amount,
+      </if>
+      <if test="creditMoney != null">
+        Credit_money,
+      </if>
+      <if test="nowCheckoutAmount != null">
+        now_checkout_amount,
+      </if>
+      <if test="nowCheoutMoney != null">
+        now_cheout_money,
+      </if>
+      <if test="jgDesc != null">
+        Jg_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jgId != null">
+        #{jgId,jdbcType=INTEGER},
+      </if>
+      <if test="jgDate != null">
+        #{jgDate,jdbcType=DATE},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="lastCheckoutAmount != null">
+        #{lastCheckoutAmount,jdbcType=INTEGER},
+      </if>
+      <if test="lastCheckoutMoney != null">
+        #{lastCheckoutMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="debitAmount != null">
+        #{debitAmount,jdbcType=INTEGER},
+      </if>
+      <if test="debitMoney != null">
+        #{debitMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmount != null">
+        #{creditAmount,jdbcType=INTEGER},
+      </if>
+      <if test="creditMoney != null">
+        #{creditMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nowCheckoutAmount != null">
+        #{nowCheckoutAmount,jdbcType=INTEGER},
+      </if>
+      <if test="nowCheoutMoney != null">
+        #{nowCheoutMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="jgDesc != null">
+        #{jgDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.JxcGather">
+    update jxc_gather
+    <set>
+      <if test="jgDate != null">
+        jg_date = #{jgDate,jdbcType=DATE},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="lastCheckoutAmount != null">
+        Last_checkout_amount = #{lastCheckoutAmount,jdbcType=INTEGER},
+      </if>
+      <if test="lastCheckoutMoney != null">
+        Last_checkout_money = #{lastCheckoutMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="debitAmount != null">
+        Debit_amount = #{debitAmount,jdbcType=INTEGER},
+      </if>
+      <if test="debitMoney != null">
+        Debit_money = #{debitMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmount != null">
+        Credit_amount = #{creditAmount,jdbcType=INTEGER},
+      </if>
+      <if test="creditMoney != null">
+        Credit_money = #{creditMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nowCheckoutAmount != null">
+        now_checkout_amount = #{nowCheckoutAmount,jdbcType=INTEGER},
+      </if>
+      <if test="nowCheoutMoney != null">
+        now_cheout_money = #{nowCheoutMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="jgDesc != null">
+        Jg_desc = #{jgDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where jg_id = #{jgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.JxcGather">
+    update jxc_gather
+    set jg_date = #{jgDate,jdbcType=DATE},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Last_checkout_amount = #{lastCheckoutAmount,jdbcType=INTEGER},
+      Last_checkout_money = #{lastCheckoutMoney,jdbcType=DECIMAL},
+      Debit_amount = #{debitAmount,jdbcType=INTEGER},
+      Debit_money = #{debitMoney,jdbcType=DECIMAL},
+      Credit_amount = #{creditAmount,jdbcType=INTEGER},
+      Credit_money = #{creditMoney,jdbcType=DECIMAL},
+      now_checkout_amount = #{nowCheckoutAmount,jdbcType=INTEGER},
+      now_cheout_money = #{nowCheoutMoney,jdbcType=DECIMAL},
+      Jg_desc = #{jgDesc,jdbcType=VARCHAR}
+    where jg_id = #{jgId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.JxcGather">
+    <id column="jg_id" jdbcType="INTEGER" property="jgId" />
+    <result column="jg_date" jdbcType="DATE" property="jgDate" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="Last_checkout_amount" jdbcType="INTEGER" property="lastCheckoutAmount" />
+    <result column="Last_checkout_money" jdbcType="DECIMAL" property="lastCheckoutMoney" />
+    <result column="Debit_amount" jdbcType="INTEGER" property="debitAmount" />
+    <result column="Debit_money" jdbcType="DECIMAL" property="debitMoney" />
+    <result column="Credit_amount" jdbcType="INTEGER" property="creditAmount" />
+    <result column="Credit_money" jdbcType="DECIMAL" property="creditMoney" />
+    <result column="now_checkout_amount" jdbcType="INTEGER" property="nowCheckoutAmount" />
+    <result column="now_cheout_money" jdbcType="DECIMAL" property="nowCheoutMoney" />
+    <result column="Jg_desc" jdbcType="VARCHAR" property="jgDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    jg_id, jg_date, Comm_id, Last_checkout_amount, Last_checkout_money, Debit_amount, 
+    Debit_money, Credit_amount, Credit_money, now_checkout_amount, now_cheout_money, 
+    Jg_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jxc_gather
+    where jg_id = #{jgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jxc_gather
+    where jg_id = #{jgId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.JxcGather">
+    insert into jxc_gather (jg_id, jg_date, Comm_id, 
+      Last_checkout_amount, Last_checkout_money, 
+      Debit_amount, Debit_money, Credit_amount, 
+      Credit_money, now_checkout_amount, now_cheout_money, 
+      Jg_desc)
+    values (#{jgId,jdbcType=INTEGER}, #{jgDate,jdbcType=DATE}, #{commId,jdbcType=INTEGER}, 
+      #{lastCheckoutAmount,jdbcType=INTEGER}, #{lastCheckoutMoney,jdbcType=DECIMAL}, 
+      #{debitAmount,jdbcType=INTEGER}, #{debitMoney,jdbcType=DECIMAL}, #{creditAmount,jdbcType=INTEGER}, 
+      #{creditMoney,jdbcType=DECIMAL}, #{nowCheckoutAmount,jdbcType=INTEGER}, #{nowCheoutMoney,jdbcType=DECIMAL}, 
+      #{jgDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.JxcGather">
+    insert into jxc_gather
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jgId != null">
+        jg_id,
+      </if>
+      <if test="jgDate != null">
+        jg_date,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="lastCheckoutAmount != null">
+        Last_checkout_amount,
+      </if>
+      <if test="lastCheckoutMoney != null">
+        Last_checkout_money,
+      </if>
+      <if test="debitAmount != null">
+        Debit_amount,
+      </if>
+      <if test="debitMoney != null">
+        Debit_money,
+      </if>
+      <if test="creditAmount != null">
+        Credit_amount,
+      </if>
+      <if test="creditMoney != null">
+        Credit_money,
+      </if>
+      <if test="nowCheckoutAmount != null">
+        now_checkout_amount,
+      </if>
+      <if test="nowCheoutMoney != null">
+        now_cheout_money,
+      </if>
+      <if test="jgDesc != null">
+        Jg_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jgId != null">
+        #{jgId,jdbcType=INTEGER},
+      </if>
+      <if test="jgDate != null">
+        #{jgDate,jdbcType=DATE},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="lastCheckoutAmount != null">
+        #{lastCheckoutAmount,jdbcType=INTEGER},
+      </if>
+      <if test="lastCheckoutMoney != null">
+        #{lastCheckoutMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="debitAmount != null">
+        #{debitAmount,jdbcType=INTEGER},
+      </if>
+      <if test="debitMoney != null">
+        #{debitMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmount != null">
+        #{creditAmount,jdbcType=INTEGER},
+      </if>
+      <if test="creditMoney != null">
+        #{creditMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nowCheckoutAmount != null">
+        #{nowCheckoutAmount,jdbcType=INTEGER},
+      </if>
+      <if test="nowCheoutMoney != null">
+        #{nowCheoutMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="jgDesc != null">
+        #{jgDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.JxcGather">
+    update jxc_gather
+    <set>
+      <if test="jgDate != null">
+        jg_date = #{jgDate,jdbcType=DATE},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="lastCheckoutAmount != null">
+        Last_checkout_amount = #{lastCheckoutAmount,jdbcType=INTEGER},
+      </if>
+      <if test="lastCheckoutMoney != null">
+        Last_checkout_money = #{lastCheckoutMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="debitAmount != null">
+        Debit_amount = #{debitAmount,jdbcType=INTEGER},
+      </if>
+      <if test="debitMoney != null">
+        Debit_money = #{debitMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmount != null">
+        Credit_amount = #{creditAmount,jdbcType=INTEGER},
+      </if>
+      <if test="creditMoney != null">
+        Credit_money = #{creditMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nowCheckoutAmount != null">
+        now_checkout_amount = #{nowCheckoutAmount,jdbcType=INTEGER},
+      </if>
+      <if test="nowCheoutMoney != null">
+        now_cheout_money = #{nowCheoutMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="jgDesc != null">
+        Jg_desc = #{jgDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where jg_id = #{jgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.JxcGather">
+    update jxc_gather
+    set jg_date = #{jgDate,jdbcType=DATE},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Last_checkout_amount = #{lastCheckoutAmount,jdbcType=INTEGER},
+      Last_checkout_money = #{lastCheckoutMoney,jdbcType=DECIMAL},
+      Debit_amount = #{debitAmount,jdbcType=INTEGER},
+      Debit_money = #{debitMoney,jdbcType=DECIMAL},
+      Credit_amount = #{creditAmount,jdbcType=INTEGER},
+      Credit_money = #{creditMoney,jdbcType=DECIMAL},
+      now_checkout_amount = #{nowCheckoutAmount,jdbcType=INTEGER},
+      now_cheout_money = #{nowCheoutMoney,jdbcType=DECIMAL},
+      Jg_desc = #{jgDesc,jdbcType=VARCHAR}
+    where jg_id = #{jgId,jdbcType=INTEGER}
+  </update>
+</mapper>

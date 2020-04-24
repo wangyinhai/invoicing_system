@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.StorMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Stor">
+    <id column="stor_id" jdbcType="INTEGER" property="storId" />
+    <result column="stor_name" jdbcType="VARCHAR" property="storName" />
+    <result column="stor_address" jdbcType="VARCHAR" property="storAddress" />
+    <result column="stor_desc" jdbcType="VARCHAR" property="storDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    stor_id, stor_name, stor_address, stor_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stor
+    where stor_id = #{storId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from stor
+    where stor_id = #{storId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Stor">
+    insert into stor (stor_id, stor_name, stor_address, 
+      stor_desc)
+    values (#{storId,jdbcType=INTEGER}, #{storName,jdbcType=VARCHAR}, #{storAddress,jdbcType=VARCHAR}, 
+      #{storDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Stor">
+    insert into stor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="storId != null">
+        stor_id,
+      </if>
+      <if test="storName != null">
+        stor_name,
+      </if>
+      <if test="storAddress != null">
+        stor_address,
+      </if>
+      <if test="storDesc != null">
+        stor_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="storId != null">
+        #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="storName != null">
+        #{storName,jdbcType=VARCHAR},
+      </if>
+      <if test="storAddress != null">
+        #{storAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="storDesc != null">
+        #{storDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Stor">
+    update stor
+    <set>
+      <if test="storName != null">
+        stor_name = #{storName,jdbcType=VARCHAR},
+      </if>
+      <if test="storAddress != null">
+        stor_address = #{storAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="storDesc != null">
+        stor_desc = #{storDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stor_id = #{storId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Stor">
+    update stor
+    set stor_name = #{storName,jdbcType=VARCHAR},
+      stor_address = #{storAddress,jdbcType=VARCHAR},
+      stor_desc = #{storDesc,jdbcType=VARCHAR}
+    where stor_id = #{storId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Stor">
+    <id column="stor_id" jdbcType="INTEGER" property="storId" />
+    <result column="stor_name" jdbcType="VARCHAR" property="storName" />
+    <result column="stor_address" jdbcType="VARCHAR" property="storAddress" />
+    <result column="stor_desc" jdbcType="VARCHAR" property="storDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    stor_id, stor_name, stor_address, stor_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stor
+    where stor_id = #{storId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from stor
+    where stor_id = #{storId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Stor">
+    insert into stor (stor_id, stor_name, stor_address, 
+      stor_desc)
+    values (#{storId,jdbcType=INTEGER}, #{storName,jdbcType=VARCHAR}, #{storAddress,jdbcType=VARCHAR}, 
+      #{storDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Stor">
+    insert into stor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="storId != null">
+        stor_id,
+      </if>
+      <if test="storName != null">
+        stor_name,
+      </if>
+      <if test="storAddress != null">
+        stor_address,
+      </if>
+      <if test="storDesc != null">
+        stor_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="storId != null">
+        #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="storName != null">
+        #{storName,jdbcType=VARCHAR},
+      </if>
+      <if test="storAddress != null">
+        #{storAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="storDesc != null">
+        #{storDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Stor">
+    update stor
+    <set>
+      <if test="storName != null">
+        stor_name = #{storName,jdbcType=VARCHAR},
+      </if>
+      <if test="storAddress != null">
+        stor_address = #{storAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="storDesc != null">
+        stor_desc = #{storDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stor_id = #{storId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Stor">
+    update stor
+    set stor_name = #{storName,jdbcType=VARCHAR},
+      stor_address = #{storAddress,jdbcType=VARCHAR},
+      stor_desc = #{storDesc,jdbcType=VARCHAR}
+    where stor_id = #{storId,jdbcType=INTEGER}
+  </update>
+</mapper>

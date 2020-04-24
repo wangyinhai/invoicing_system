@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.SuppliersMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Suppliers">
+    <id column="supp_id" jdbcType="INTEGER" property="suppId" />
+    <result column="supp_spell_code" jdbcType="VARCHAR" property="suppSpellCode" />
+    <result column="supp_short_name" jdbcType="VARCHAR" property="suppShortName" />
+    <result column="supp_name" jdbcType="VARCHAR" property="suppName" />
+    <result column="supp_address" jdbcType="VARCHAR" property="suppAddress" />
+    <result column="supp_post_code" jdbcType="VARCHAR" property="suppPostCode" />
+    <result column="supp_sort" jdbcType="VARCHAR" property="suppSort" />
+    <result column="supp_tel" jdbcType="VARCHAR" property="suppTel" />
+    <result column="supp_fax" jdbcType="VARCHAR" property="suppFax" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    supp_id, supp_spell_code, supp_short_name, supp_name, supp_address, supp_post_code, 
+    supp_sort, supp_tel, supp_fax
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from suppliers
+    where supp_id = #{suppId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from suppliers
+    where supp_id = #{suppId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Suppliers">
+    insert into suppliers (supp_id, supp_spell_code, supp_short_name, 
+      supp_name, supp_address, supp_post_code, 
+      supp_sort, supp_tel, supp_fax
+      )
+    values (#{suppId,jdbcType=INTEGER}, #{suppSpellCode,jdbcType=VARCHAR}, #{suppShortName,jdbcType=VARCHAR}, 
+      #{suppName,jdbcType=VARCHAR}, #{suppAddress,jdbcType=VARCHAR}, #{suppPostCode,jdbcType=VARCHAR}, 
+      #{suppSort,jdbcType=VARCHAR}, #{suppTel,jdbcType=VARCHAR}, #{suppFax,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Suppliers">
+    insert into suppliers
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="suppId != null">
+        supp_id,
+      </if>
+      <if test="suppSpellCode != null">
+        supp_spell_code,
+      </if>
+      <if test="suppShortName != null">
+        supp_short_name,
+      </if>
+      <if test="suppName != null">
+        supp_name,
+      </if>
+      <if test="suppAddress != null">
+        supp_address,
+      </if>
+      <if test="suppPostCode != null">
+        supp_post_code,
+      </if>
+      <if test="suppSort != null">
+        supp_sort,
+      </if>
+      <if test="suppTel != null">
+        supp_tel,
+      </if>
+      <if test="suppFax != null">
+        supp_fax,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="suppId != null">
+        #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="suppSpellCode != null">
+        #{suppSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="suppShortName != null">
+        #{suppShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="suppName != null">
+        #{suppName,jdbcType=VARCHAR},
+      </if>
+      <if test="suppAddress != null">
+        #{suppAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="suppPostCode != null">
+        #{suppPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="suppSort != null">
+        #{suppSort,jdbcType=VARCHAR},
+      </if>
+      <if test="suppTel != null">
+        #{suppTel,jdbcType=VARCHAR},
+      </if>
+      <if test="suppFax != null">
+        #{suppFax,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Suppliers">
+    update suppliers
+    <set>
+      <if test="suppSpellCode != null">
+        supp_spell_code = #{suppSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="suppShortName != null">
+        supp_short_name = #{suppShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="suppName != null">
+        supp_name = #{suppName,jdbcType=VARCHAR},
+      </if>
+      <if test="suppAddress != null">
+        supp_address = #{suppAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="suppPostCode != null">
+        supp_post_code = #{suppPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="suppSort != null">
+        supp_sort = #{suppSort,jdbcType=VARCHAR},
+      </if>
+      <if test="suppTel != null">
+        supp_tel = #{suppTel,jdbcType=VARCHAR},
+      </if>
+      <if test="suppFax != null">
+        supp_fax = #{suppFax,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where supp_id = #{suppId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Suppliers">
+    update suppliers
+    set supp_spell_code = #{suppSpellCode,jdbcType=VARCHAR},
+      supp_short_name = #{suppShortName,jdbcType=VARCHAR},
+      supp_name = #{suppName,jdbcType=VARCHAR},
+      supp_address = #{suppAddress,jdbcType=VARCHAR},
+      supp_post_code = #{suppPostCode,jdbcType=VARCHAR},
+      supp_sort = #{suppSort,jdbcType=VARCHAR},
+      supp_tel = #{suppTel,jdbcType=VARCHAR},
+      supp_fax = #{suppFax,jdbcType=VARCHAR}
+    where supp_id = #{suppId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Suppliers">
+    <id column="supp_id" jdbcType="INTEGER" property="suppId" />
+    <result column="supp_spell_code" jdbcType="VARCHAR" property="suppSpellCode" />
+    <result column="supp_short_name" jdbcType="VARCHAR" property="suppShortName" />
+    <result column="supp_name" jdbcType="VARCHAR" property="suppName" />
+    <result column="supp_address" jdbcType="VARCHAR" property="suppAddress" />
+    <result column="supp_post_code" jdbcType="VARCHAR" property="suppPostCode" />
+    <result column="supp_sort" jdbcType="VARCHAR" property="suppSort" />
+    <result column="supp_tel" jdbcType="VARCHAR" property="suppTel" />
+    <result column="supp_fax" jdbcType="VARCHAR" property="suppFax" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    supp_id, supp_spell_code, supp_short_name, supp_name, supp_address, supp_post_code, 
+    supp_sort, supp_tel, supp_fax
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from suppliers
+    where supp_id = #{suppId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from suppliers
+    where supp_id = #{suppId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Suppliers">
+    insert into suppliers (supp_id, supp_spell_code, supp_short_name, 
+      supp_name, supp_address, supp_post_code, 
+      supp_sort, supp_tel, supp_fax
+      )
+    values (#{suppId,jdbcType=INTEGER}, #{suppSpellCode,jdbcType=VARCHAR}, #{suppShortName,jdbcType=VARCHAR}, 
+      #{suppName,jdbcType=VARCHAR}, #{suppAddress,jdbcType=VARCHAR}, #{suppPostCode,jdbcType=VARCHAR}, 
+      #{suppSort,jdbcType=VARCHAR}, #{suppTel,jdbcType=VARCHAR}, #{suppFax,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Suppliers">
+    insert into suppliers
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="suppId != null">
+        supp_id,
+      </if>
+      <if test="suppSpellCode != null">
+        supp_spell_code,
+      </if>
+      <if test="suppShortName != null">
+        supp_short_name,
+      </if>
+      <if test="suppName != null">
+        supp_name,
+      </if>
+      <if test="suppAddress != null">
+        supp_address,
+      </if>
+      <if test="suppPostCode != null">
+        supp_post_code,
+      </if>
+      <if test="suppSort != null">
+        supp_sort,
+      </if>
+      <if test="suppTel != null">
+        supp_tel,
+      </if>
+      <if test="suppFax != null">
+        supp_fax,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="suppId != null">
+        #{suppId,jdbcType=INTEGER},
+      </if>
+      <if test="suppSpellCode != null">
+        #{suppSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="suppShortName != null">
+        #{suppShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="suppName != null">
+        #{suppName,jdbcType=VARCHAR},
+      </if>
+      <if test="suppAddress != null">
+        #{suppAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="suppPostCode != null">
+        #{suppPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="suppSort != null">
+        #{suppSort,jdbcType=VARCHAR},
+      </if>
+      <if test="suppTel != null">
+        #{suppTel,jdbcType=VARCHAR},
+      </if>
+      <if test="suppFax != null">
+        #{suppFax,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Suppliers">
+    update suppliers
+    <set>
+      <if test="suppSpellCode != null">
+        supp_spell_code = #{suppSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="suppShortName != null">
+        supp_short_name = #{suppShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="suppName != null">
+        supp_name = #{suppName,jdbcType=VARCHAR},
+      </if>
+      <if test="suppAddress != null">
+        supp_address = #{suppAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="suppPostCode != null">
+        supp_post_code = #{suppPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="suppSort != null">
+        supp_sort = #{suppSort,jdbcType=VARCHAR},
+      </if>
+      <if test="suppTel != null">
+        supp_tel = #{suppTel,jdbcType=VARCHAR},
+      </if>
+      <if test="suppFax != null">
+        supp_fax = #{suppFax,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where supp_id = #{suppId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Suppliers">
+    update suppliers
+    set supp_spell_code = #{suppSpellCode,jdbcType=VARCHAR},
+      supp_short_name = #{suppShortName,jdbcType=VARCHAR},
+      supp_name = #{suppName,jdbcType=VARCHAR},
+      supp_address = #{suppAddress,jdbcType=VARCHAR},
+      supp_post_code = #{suppPostCode,jdbcType=VARCHAR},
+      supp_sort = #{suppSort,jdbcType=VARCHAR},
+      supp_tel = #{suppTel,jdbcType=VARCHAR},
+      supp_fax = #{suppFax,jdbcType=VARCHAR}
+    where supp_id = #{suppId,jdbcType=INTEGER}
+  </update>
+</mapper>

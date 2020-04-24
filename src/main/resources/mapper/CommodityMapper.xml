@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.CommodityMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Commodity">
+    <id column="comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="comm_bar_code" jdbcType="VARCHAR" property="commBarCode" />
+    <result column="comm_name" jdbcType="VARCHAR" property="commName" />
+    <result column="comm_spell_code" jdbcType="VARCHAR" property="commSpellCode" />
+    <result column="comm_standard" jdbcType="VARCHAR" property="commStandard" />
+    <result column="comm_unit" jdbcType="VARCHAR" property="commUnit" />
+    <result column="comm_producing_area" jdbcType="VARCHAR" property="commProducingArea" />
+    <result column="comm_sort" jdbcType="VARCHAR" property="commSort" />
+    <result column="purchase_price" jdbcType="DECIMAL" property="purchasePrice" />
+    <result column="sale_price1" jdbcType="DECIMAL" property="salePrice1" />
+    <result column="sale_price2" jdbcType="DECIMAL" property="salePrice2" />
+    <result column="lowest_sale_price" jdbcType="DECIMAL" property="lowestSalePrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    comm_id, comm_bar_code, comm_name, comm_spell_code, comm_standard, comm_unit, comm_producing_area, 
+    comm_sort, purchase_price, sale_price1, sale_price2, lowest_sale_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from commodity
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from commodity
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Commodity">
+    insert into commodity (comm_id, comm_bar_code, comm_name, 
+      comm_spell_code, comm_standard, comm_unit, 
+      comm_producing_area, comm_sort, purchase_price, 
+      sale_price1, sale_price2, lowest_sale_price
+      )
+    values (#{commId,jdbcType=INTEGER}, #{commBarCode,jdbcType=VARCHAR}, #{commName,jdbcType=VARCHAR}, 
+      #{commSpellCode,jdbcType=VARCHAR}, #{commStandard,jdbcType=VARCHAR}, #{commUnit,jdbcType=VARCHAR}, 
+      #{commProducingArea,jdbcType=VARCHAR}, #{commSort,jdbcType=VARCHAR}, #{purchasePrice,jdbcType=DECIMAL}, 
+      #{salePrice1,jdbcType=DECIMAL}, #{salePrice2,jdbcType=DECIMAL}, #{lowestSalePrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Commodity">
+    insert into commodity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="commId != null">
+        comm_id,
+      </if>
+      <if test="commBarCode != null">
+        comm_bar_code,
+      </if>
+      <if test="commName != null">
+        comm_name,
+      </if>
+      <if test="commSpellCode != null">
+        comm_spell_code,
+      </if>
+      <if test="commStandard != null">
+        comm_standard,
+      </if>
+      <if test="commUnit != null">
+        comm_unit,
+      </if>
+      <if test="commProducingArea != null">
+        comm_producing_area,
+      </if>
+      <if test="commSort != null">
+        comm_sort,
+      </if>
+      <if test="purchasePrice != null">
+        purchase_price,
+      </if>
+      <if test="salePrice1 != null">
+        sale_price1,
+      </if>
+      <if test="salePrice2 != null">
+        sale_price2,
+      </if>
+      <if test="lowestSalePrice != null">
+        lowest_sale_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="commBarCode != null">
+        #{commBarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="commName != null">
+        #{commName,jdbcType=VARCHAR},
+      </if>
+      <if test="commSpellCode != null">
+        #{commSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="commStandard != null">
+        #{commStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="commUnit != null">
+        #{commUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="commProducingArea != null">
+        #{commProducingArea,jdbcType=VARCHAR},
+      </if>
+      <if test="commSort != null">
+        #{commSort,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasePrice != null">
+        #{purchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice1 != null">
+        #{salePrice1,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice2 != null">
+        #{salePrice2,jdbcType=DECIMAL},
+      </if>
+      <if test="lowestSalePrice != null">
+        #{lowestSalePrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Commodity">
+    update commodity
+    <set>
+      <if test="commBarCode != null">
+        comm_bar_code = #{commBarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="commName != null">
+        comm_name = #{commName,jdbcType=VARCHAR},
+      </if>
+      <if test="commSpellCode != null">
+        comm_spell_code = #{commSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="commStandard != null">
+        comm_standard = #{commStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="commUnit != null">
+        comm_unit = #{commUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="commProducingArea != null">
+        comm_producing_area = #{commProducingArea,jdbcType=VARCHAR},
+      </if>
+      <if test="commSort != null">
+        comm_sort = #{commSort,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasePrice != null">
+        purchase_price = #{purchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice1 != null">
+        sale_price1 = #{salePrice1,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice2 != null">
+        sale_price2 = #{salePrice2,jdbcType=DECIMAL},
+      </if>
+      <if test="lowestSalePrice != null">
+        lowest_sale_price = #{lowestSalePrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Commodity">
+    update commodity
+    set comm_bar_code = #{commBarCode,jdbcType=VARCHAR},
+      comm_name = #{commName,jdbcType=VARCHAR},
+      comm_spell_code = #{commSpellCode,jdbcType=VARCHAR},
+      comm_standard = #{commStandard,jdbcType=VARCHAR},
+      comm_unit = #{commUnit,jdbcType=VARCHAR},
+      comm_producing_area = #{commProducingArea,jdbcType=VARCHAR},
+      comm_sort = #{commSort,jdbcType=VARCHAR},
+      purchase_price = #{purchasePrice,jdbcType=DECIMAL},
+      sale_price1 = #{salePrice1,jdbcType=DECIMAL},
+      sale_price2 = #{salePrice2,jdbcType=DECIMAL},
+      lowest_sale_price = #{lowestSalePrice,jdbcType=DECIMAL}
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.Commodity">
+    <id column="comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="comm_bar_code" jdbcType="VARCHAR" property="commBarCode" />
+    <result column="comm_name" jdbcType="VARCHAR" property="commName" />
+    <result column="comm_spell_code" jdbcType="VARCHAR" property="commSpellCode" />
+    <result column="comm_standard" jdbcType="VARCHAR" property="commStandard" />
+    <result column="comm_unit" jdbcType="VARCHAR" property="commUnit" />
+    <result column="comm_producing_area" jdbcType="VARCHAR" property="commProducingArea" />
+    <result column="comm_sort" jdbcType="VARCHAR" property="commSort" />
+    <result column="purchase_price" jdbcType="DECIMAL" property="purchasePrice" />
+    <result column="sale_price1" jdbcType="DECIMAL" property="salePrice1" />
+    <result column="sale_price2" jdbcType="DECIMAL" property="salePrice2" />
+    <result column="lowest_sale_price" jdbcType="DECIMAL" property="lowestSalePrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    comm_id, comm_bar_code, comm_name, comm_spell_code, comm_standard, comm_unit, comm_producing_area, 
+    comm_sort, purchase_price, sale_price1, sale_price2, lowest_sale_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from commodity
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from commodity
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.Commodity">
+    insert into commodity (comm_id, comm_bar_code, comm_name, 
+      comm_spell_code, comm_standard, comm_unit, 
+      comm_producing_area, comm_sort, purchase_price, 
+      sale_price1, sale_price2, lowest_sale_price
+      )
+    values (#{commId,jdbcType=INTEGER}, #{commBarCode,jdbcType=VARCHAR}, #{commName,jdbcType=VARCHAR}, 
+      #{commSpellCode,jdbcType=VARCHAR}, #{commStandard,jdbcType=VARCHAR}, #{commUnit,jdbcType=VARCHAR}, 
+      #{commProducingArea,jdbcType=VARCHAR}, #{commSort,jdbcType=VARCHAR}, #{purchasePrice,jdbcType=DECIMAL}, 
+      #{salePrice1,jdbcType=DECIMAL}, #{salePrice2,jdbcType=DECIMAL}, #{lowestSalePrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.Commodity">
+    insert into commodity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="commId != null">
+        comm_id,
+      </if>
+      <if test="commBarCode != null">
+        comm_bar_code,
+      </if>
+      <if test="commName != null">
+        comm_name,
+      </if>
+      <if test="commSpellCode != null">
+        comm_spell_code,
+      </if>
+      <if test="commStandard != null">
+        comm_standard,
+      </if>
+      <if test="commUnit != null">
+        comm_unit,
+      </if>
+      <if test="commProducingArea != null">
+        comm_producing_area,
+      </if>
+      <if test="commSort != null">
+        comm_sort,
+      </if>
+      <if test="purchasePrice != null">
+        purchase_price,
+      </if>
+      <if test="salePrice1 != null">
+        sale_price1,
+      </if>
+      <if test="salePrice2 != null">
+        sale_price2,
+      </if>
+      <if test="lowestSalePrice != null">
+        lowest_sale_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="commBarCode != null">
+        #{commBarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="commName != null">
+        #{commName,jdbcType=VARCHAR},
+      </if>
+      <if test="commSpellCode != null">
+        #{commSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="commStandard != null">
+        #{commStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="commUnit != null">
+        #{commUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="commProducingArea != null">
+        #{commProducingArea,jdbcType=VARCHAR},
+      </if>
+      <if test="commSort != null">
+        #{commSort,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasePrice != null">
+        #{purchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice1 != null">
+        #{salePrice1,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice2 != null">
+        #{salePrice2,jdbcType=DECIMAL},
+      </if>
+      <if test="lowestSalePrice != null">
+        #{lowestSalePrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.Commodity">
+    update commodity
+    <set>
+      <if test="commBarCode != null">
+        comm_bar_code = #{commBarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="commName != null">
+        comm_name = #{commName,jdbcType=VARCHAR},
+      </if>
+      <if test="commSpellCode != null">
+        comm_spell_code = #{commSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="commStandard != null">
+        comm_standard = #{commStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="commUnit != null">
+        comm_unit = #{commUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="commProducingArea != null">
+        comm_producing_area = #{commProducingArea,jdbcType=VARCHAR},
+      </if>
+      <if test="commSort != null">
+        comm_sort = #{commSort,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasePrice != null">
+        purchase_price = #{purchasePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice1 != null">
+        sale_price1 = #{salePrice1,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice2 != null">
+        sale_price2 = #{salePrice2,jdbcType=DECIMAL},
+      </if>
+      <if test="lowestSalePrice != null">
+        lowest_sale_price = #{lowestSalePrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.Commodity">
+    update commodity
+    set comm_bar_code = #{commBarCode,jdbcType=VARCHAR},
+      comm_name = #{commName,jdbcType=VARCHAR},
+      comm_spell_code = #{commSpellCode,jdbcType=VARCHAR},
+      comm_standard = #{commStandard,jdbcType=VARCHAR},
+      comm_unit = #{commUnit,jdbcType=VARCHAR},
+      comm_producing_area = #{commProducingArea,jdbcType=VARCHAR},
+      comm_sort = #{commSort,jdbcType=VARCHAR},
+      purchase_price = #{purchasePrice,jdbcType=DECIMAL},
+      sale_price1 = #{salePrice1,jdbcType=DECIMAL},
+      sale_price2 = #{salePrice2,jdbcType=DECIMAL},
+      lowest_sale_price = #{lowestSalePrice,jdbcType=DECIMAL}
+    where comm_id = #{commId,jdbcType=INTEGER}
+  </update>
+</mapper>

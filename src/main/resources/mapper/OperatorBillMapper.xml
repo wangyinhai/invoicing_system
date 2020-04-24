@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.OperatorBillMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.OperatorBill">
+    <id column="oper_id" jdbcType="INTEGER" property="operId" />
+    <result column="oper_spell_code" jdbcType="VARCHAR" property="operSpellCode" />
+    <result column="oper_name" jdbcType="VARCHAR" property="operName" />
+    <result column="oper_sex" jdbcType="VARCHAR" property="operSex" />
+    <result column="oper_tel" jdbcType="VARCHAR" property="operTel" />
+    <result column="oper_moblie_tel" jdbcType="VARCHAR" property="operMoblieTel" />
+    <result column="oper_address" jdbcType="VARCHAR" property="operAddress" />
+    <result column="oper_postcode" jdbcType="VARCHAR" property="operPostcode" />
+    <result column="oper_ID_munber" jdbcType="VARCHAR" property="operIdMunber" />
+    <result column="oper_sort" jdbcType="VARCHAR" property="operSort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    oper_id, oper_spell_code, oper_name, oper_sex, oper_tel, oper_moblie_tel, oper_address, 
+    oper_postcode, oper_ID_munber, oper_sort
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from operator_bill
+    where oper_id = #{operId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from operator_bill
+    where oper_id = #{operId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.OperatorBill">
+    insert into operator_bill (oper_id, oper_spell_code, oper_name, 
+      oper_sex, oper_tel, oper_moblie_tel, 
+      oper_address, oper_postcode, oper_ID_munber, 
+      oper_sort)
+    values (#{operId,jdbcType=INTEGER}, #{operSpellCode,jdbcType=VARCHAR}, #{operName,jdbcType=VARCHAR}, 
+      #{operSex,jdbcType=VARCHAR}, #{operTel,jdbcType=VARCHAR}, #{operMoblieTel,jdbcType=VARCHAR}, 
+      #{operAddress,jdbcType=VARCHAR}, #{operPostcode,jdbcType=VARCHAR}, #{operIdMunber,jdbcType=VARCHAR}, 
+      #{operSort,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.OperatorBill">
+    insert into operator_bill
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operId != null">
+        oper_id,
+      </if>
+      <if test="operSpellCode != null">
+        oper_spell_code,
+      </if>
+      <if test="operName != null">
+        oper_name,
+      </if>
+      <if test="operSex != null">
+        oper_sex,
+      </if>
+      <if test="operTel != null">
+        oper_tel,
+      </if>
+      <if test="operMoblieTel != null">
+        oper_moblie_tel,
+      </if>
+      <if test="operAddress != null">
+        oper_address,
+      </if>
+      <if test="operPostcode != null">
+        oper_postcode,
+      </if>
+      <if test="operIdMunber != null">
+        oper_ID_munber,
+      </if>
+      <if test="operSort != null">
+        oper_sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operId != null">
+        #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="operSpellCode != null">
+        #{operSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operSex != null">
+        #{operSex,jdbcType=VARCHAR},
+      </if>
+      <if test="operTel != null">
+        #{operTel,jdbcType=VARCHAR},
+      </if>
+      <if test="operMoblieTel != null">
+        #{operMoblieTel,jdbcType=VARCHAR},
+      </if>
+      <if test="operAddress != null">
+        #{operAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="operPostcode != null">
+        #{operPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operIdMunber != null">
+        #{operIdMunber,jdbcType=VARCHAR},
+      </if>
+      <if test="operSort != null">
+        #{operSort,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.OperatorBill">
+    update operator_bill
+    <set>
+      <if test="operSpellCode != null">
+        oper_spell_code = #{operSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        oper_name = #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operSex != null">
+        oper_sex = #{operSex,jdbcType=VARCHAR},
+      </if>
+      <if test="operTel != null">
+        oper_tel = #{operTel,jdbcType=VARCHAR},
+      </if>
+      <if test="operMoblieTel != null">
+        oper_moblie_tel = #{operMoblieTel,jdbcType=VARCHAR},
+      </if>
+      <if test="operAddress != null">
+        oper_address = #{operAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="operPostcode != null">
+        oper_postcode = #{operPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operIdMunber != null">
+        oper_ID_munber = #{operIdMunber,jdbcType=VARCHAR},
+      </if>
+      <if test="operSort != null">
+        oper_sort = #{operSort,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where oper_id = #{operId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.OperatorBill">
+    update operator_bill
+    set oper_spell_code = #{operSpellCode,jdbcType=VARCHAR},
+      oper_name = #{operName,jdbcType=VARCHAR},
+      oper_sex = #{operSex,jdbcType=VARCHAR},
+      oper_tel = #{operTel,jdbcType=VARCHAR},
+      oper_moblie_tel = #{operMoblieTel,jdbcType=VARCHAR},
+      oper_address = #{operAddress,jdbcType=VARCHAR},
+      oper_postcode = #{operPostcode,jdbcType=VARCHAR},
+      oper_ID_munber = #{operIdMunber,jdbcType=VARCHAR},
+      oper_sort = #{operSort,jdbcType=VARCHAR}
+    where oper_id = #{operId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.OperatorBill">
+    <id column="oper_id" jdbcType="INTEGER" property="operId" />
+    <result column="oper_spell_code" jdbcType="VARCHAR" property="operSpellCode" />
+    <result column="oper_name" jdbcType="VARCHAR" property="operName" />
+    <result column="oper_sex" jdbcType="VARCHAR" property="operSex" />
+    <result column="oper_tel" jdbcType="VARCHAR" property="operTel" />
+    <result column="oper_moblie_tel" jdbcType="VARCHAR" property="operMoblieTel" />
+    <result column="oper_address" jdbcType="VARCHAR" property="operAddress" />
+    <result column="oper_postcode" jdbcType="VARCHAR" property="operPostcode" />
+    <result column="oper_ID_munber" jdbcType="VARCHAR" property="operIdMunber" />
+    <result column="oper_sort" jdbcType="VARCHAR" property="operSort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    oper_id, oper_spell_code, oper_name, oper_sex, oper_tel, oper_moblie_tel, oper_address, 
+    oper_postcode, oper_ID_munber, oper_sort
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from operator_bill
+    where oper_id = #{operId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from operator_bill
+    where oper_id = #{operId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.OperatorBill">
+    insert into operator_bill (oper_id, oper_spell_code, oper_name, 
+      oper_sex, oper_tel, oper_moblie_tel, 
+      oper_address, oper_postcode, oper_ID_munber, 
+      oper_sort)
+    values (#{operId,jdbcType=INTEGER}, #{operSpellCode,jdbcType=VARCHAR}, #{operName,jdbcType=VARCHAR}, 
+      #{operSex,jdbcType=VARCHAR}, #{operTel,jdbcType=VARCHAR}, #{operMoblieTel,jdbcType=VARCHAR}, 
+      #{operAddress,jdbcType=VARCHAR}, #{operPostcode,jdbcType=VARCHAR}, #{operIdMunber,jdbcType=VARCHAR}, 
+      #{operSort,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.OperatorBill">
+    insert into operator_bill
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operId != null">
+        oper_id,
+      </if>
+      <if test="operSpellCode != null">
+        oper_spell_code,
+      </if>
+      <if test="operName != null">
+        oper_name,
+      </if>
+      <if test="operSex != null">
+        oper_sex,
+      </if>
+      <if test="operTel != null">
+        oper_tel,
+      </if>
+      <if test="operMoblieTel != null">
+        oper_moblie_tel,
+      </if>
+      <if test="operAddress != null">
+        oper_address,
+      </if>
+      <if test="operPostcode != null">
+        oper_postcode,
+      </if>
+      <if test="operIdMunber != null">
+        oper_ID_munber,
+      </if>
+      <if test="operSort != null">
+        oper_sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operId != null">
+        #{operId,jdbcType=INTEGER},
+      </if>
+      <if test="operSpellCode != null">
+        #{operSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operSex != null">
+        #{operSex,jdbcType=VARCHAR},
+      </if>
+      <if test="operTel != null">
+        #{operTel,jdbcType=VARCHAR},
+      </if>
+      <if test="operMoblieTel != null">
+        #{operMoblieTel,jdbcType=VARCHAR},
+      </if>
+      <if test="operAddress != null">
+        #{operAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="operPostcode != null">
+        #{operPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operIdMunber != null">
+        #{operIdMunber,jdbcType=VARCHAR},
+      </if>
+      <if test="operSort != null">
+        #{operSort,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.OperatorBill">
+    update operator_bill
+    <set>
+      <if test="operSpellCode != null">
+        oper_spell_code = #{operSpellCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operName != null">
+        oper_name = #{operName,jdbcType=VARCHAR},
+      </if>
+      <if test="operSex != null">
+        oper_sex = #{operSex,jdbcType=VARCHAR},
+      </if>
+      <if test="operTel != null">
+        oper_tel = #{operTel,jdbcType=VARCHAR},
+      </if>
+      <if test="operMoblieTel != null">
+        oper_moblie_tel = #{operMoblieTel,jdbcType=VARCHAR},
+      </if>
+      <if test="operAddress != null">
+        oper_address = #{operAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="operPostcode != null">
+        oper_postcode = #{operPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operIdMunber != null">
+        oper_ID_munber = #{operIdMunber,jdbcType=VARCHAR},
+      </if>
+      <if test="operSort != null">
+        oper_sort = #{operSort,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where oper_id = #{operId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.OperatorBill">
+    update operator_bill
+    set oper_spell_code = #{operSpellCode,jdbcType=VARCHAR},
+      oper_name = #{operName,jdbcType=VARCHAR},
+      oper_sex = #{operSex,jdbcType=VARCHAR},
+      oper_tel = #{operTel,jdbcType=VARCHAR},
+      oper_moblie_tel = #{operMoblieTel,jdbcType=VARCHAR},
+      oper_address = #{operAddress,jdbcType=VARCHAR},
+      oper_postcode = #{operPostcode,jdbcType=VARCHAR},
+      oper_ID_munber = #{operIdMunber,jdbcType=VARCHAR},
+      oper_sort = #{operSort,jdbcType=VARCHAR}
+    where oper_id = #{operId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.CargoTransferBillMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.CargoTransferBill">
+    <id column="ctb_id" jdbcType="INTEGER" property="ctbId" />
+    <result column="Stor_id" jdbcType="INTEGER" property="storId" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="Ctb_amount" jdbcType="INTEGER" property="ctbAmount" />
+    <result column="Ctb_date" jdbcType="DATE" property="ctbDate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yhwang.invoicing.entity.CargoTransferBill">
+    <result column="isCtb" jdbcType="LONGVARBINARY" property="isctb" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ctb_id, Stor_id, Comm_id, Ctb_amount, Ctb_date
+  </sql>
+  <sql id="Blob_Column_List">
+    isCtb
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cargo_transfer_bill
+    where ctb_id = #{ctbId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cargo_transfer_bill
+    where ctb_id = #{ctbId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.CargoTransferBill">
+    insert into cargo_transfer_bill (ctb_id, Stor_id, Comm_id, 
+      Ctb_amount, Ctb_date, isCtb
+      )
+    values (#{ctbId,jdbcType=INTEGER}, #{storId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, 
+      #{ctbAmount,jdbcType=INTEGER}, #{ctbDate,jdbcType=DATE}, #{isctb,jdbcType=LONGVARBINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.CargoTransferBill">
+    insert into cargo_transfer_bill
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ctbId != null">
+        ctb_id,
+      </if>
+      <if test="storId != null">
+        Stor_id,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="ctbAmount != null">
+        Ctb_amount,
+      </if>
+      <if test="ctbDate != null">
+        Ctb_date,
+      </if>
+      <if test="isctb != null">
+        isCtb,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ctbId != null">
+        #{ctbId,jdbcType=INTEGER},
+      </if>
+      <if test="storId != null">
+        #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="ctbAmount != null">
+        #{ctbAmount,jdbcType=INTEGER},
+      </if>
+      <if test="ctbDate != null">
+        #{ctbDate,jdbcType=DATE},
+      </if>
+      <if test="isctb != null">
+        #{isctb,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.CargoTransferBill">
+    update cargo_transfer_bill
+    <set>
+      <if test="storId != null">
+        Stor_id = #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="ctbAmount != null">
+        Ctb_amount = #{ctbAmount,jdbcType=INTEGER},
+      </if>
+      <if test="ctbDate != null">
+        Ctb_date = #{ctbDate,jdbcType=DATE},
+      </if>
+      <if test="isctb != null">
+        isCtb = #{isctb,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where ctb_id = #{ctbId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yhwang.invoicing.entity.CargoTransferBill">
+    update cargo_transfer_bill
+    set Stor_id = #{storId,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Ctb_amount = #{ctbAmount,jdbcType=INTEGER},
+      Ctb_date = #{ctbDate,jdbcType=DATE},
+      isCtb = #{isctb,jdbcType=LONGVARBINARY}
+    where ctb_id = #{ctbId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.CargoTransferBill">
+    update cargo_transfer_bill
+    set Stor_id = #{storId,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Ctb_amount = #{ctbAmount,jdbcType=INTEGER},
+      Ctb_date = #{ctbDate,jdbcType=DATE}
+    where ctb_id = #{ctbId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.CargoTransferBill">
+    <id column="ctb_id" jdbcType="INTEGER" property="ctbId" />
+    <result column="Stor_id" jdbcType="INTEGER" property="storId" />
+    <result column="Comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="Ctb_amount" jdbcType="INTEGER" property="ctbAmount" />
+    <result column="Ctb_date" jdbcType="DATE" property="ctbDate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yhwang.invoicing.entity.CargoTransferBill">
+    <result column="isCtb" jdbcType="LONGVARBINARY" property="isctb" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ctb_id, Stor_id, Comm_id, Ctb_amount, Ctb_date
+  </sql>
+  <sql id="Blob_Column_List">
+    isCtb
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cargo_transfer_bill
+    where ctb_id = #{ctbId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cargo_transfer_bill
+    where ctb_id = #{ctbId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.CargoTransferBill">
+    insert into cargo_transfer_bill (ctb_id, Stor_id, Comm_id, 
+      Ctb_amount, Ctb_date, isCtb
+      )
+    values (#{ctbId,jdbcType=INTEGER}, #{storId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, 
+      #{ctbAmount,jdbcType=INTEGER}, #{ctbDate,jdbcType=DATE}, #{isctb,jdbcType=LONGVARBINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.CargoTransferBill">
+    insert into cargo_transfer_bill
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ctbId != null">
+        ctb_id,
+      </if>
+      <if test="storId != null">
+        Stor_id,
+      </if>
+      <if test="commId != null">
+        Comm_id,
+      </if>
+      <if test="ctbAmount != null">
+        Ctb_amount,
+      </if>
+      <if test="ctbDate != null">
+        Ctb_date,
+      </if>
+      <if test="isctb != null">
+        isCtb,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ctbId != null">
+        #{ctbId,jdbcType=INTEGER},
+      </if>
+      <if test="storId != null">
+        #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="ctbAmount != null">
+        #{ctbAmount,jdbcType=INTEGER},
+      </if>
+      <if test="ctbDate != null">
+        #{ctbDate,jdbcType=DATE},
+      </if>
+      <if test="isctb != null">
+        #{isctb,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.CargoTransferBill">
+    update cargo_transfer_bill
+    <set>
+      <if test="storId != null">
+        Stor_id = #{storId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        Comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="ctbAmount != null">
+        Ctb_amount = #{ctbAmount,jdbcType=INTEGER},
+      </if>
+      <if test="ctbDate != null">
+        Ctb_date = #{ctbDate,jdbcType=DATE},
+      </if>
+      <if test="isctb != null">
+        isCtb = #{isctb,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where ctb_id = #{ctbId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yhwang.invoicing.entity.CargoTransferBill">
+    update cargo_transfer_bill
+    set Stor_id = #{storId,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Ctb_amount = #{ctbAmount,jdbcType=INTEGER},
+      Ctb_date = #{ctbDate,jdbcType=DATE},
+      isCtb = #{isctb,jdbcType=LONGVARBINARY}
+    where ctb_id = #{ctbId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.CargoTransferBill">
+    update cargo_transfer_bill
+    set Stor_id = #{storId,jdbcType=INTEGER},
+      Comm_id = #{commId,jdbcType=INTEGER},
+      Ctb_amount = #{ctbAmount,jdbcType=INTEGER},
+      Ctb_date = #{ctbDate,jdbcType=DATE}
+    where ctb_id = #{ctbId,jdbcType=INTEGER}
+  </update>
+</mapper>

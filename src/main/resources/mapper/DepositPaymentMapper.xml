@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.DepositPaymentMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.DepositPayment">
+    <id column="dp_id" jdbcType="INTEGER" property="dpId" />
+    <result column="dp_inv" jdbcType="INTEGER" property="dpInv" />
+    <result column="dp_inv_date" jdbcType="DATE" property="dpInvDate" />
+    <result column="Clie_id" jdbcType="INTEGER" property="clieId" />
+    <result column="Dp_money" jdbcType="DECIMAL" property="dpMoney" />
+    <result column="Dp_date" jdbcType="DATE" property="dpDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dp_id, dp_inv, dp_inv_date, Clie_id, Dp_money, Dp_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deposit_payment
+    where dp_id = #{dpId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deposit_payment
+    where dp_id = #{dpId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.DepositPayment">
+    insert into deposit_payment (dp_id, dp_inv, dp_inv_date, 
+      Clie_id, Dp_money, Dp_date
+      )
+    values (#{dpId,jdbcType=INTEGER}, #{dpInv,jdbcType=INTEGER}, #{dpInvDate,jdbcType=DATE}, 
+      #{clieId,jdbcType=INTEGER}, #{dpMoney,jdbcType=DECIMAL}, #{dpDate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.DepositPayment">
+    insert into deposit_payment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dpId != null">
+        dp_id,
+      </if>
+      <if test="dpInv != null">
+        dp_inv,
+      </if>
+      <if test="dpInvDate != null">
+        dp_inv_date,
+      </if>
+      <if test="clieId != null">
+        Clie_id,
+      </if>
+      <if test="dpMoney != null">
+        Dp_money,
+      </if>
+      <if test="dpDate != null">
+        Dp_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dpId != null">
+        #{dpId,jdbcType=INTEGER},
+      </if>
+      <if test="dpInv != null">
+        #{dpInv,jdbcType=INTEGER},
+      </if>
+      <if test="dpInvDate != null">
+        #{dpInvDate,jdbcType=DATE},
+      </if>
+      <if test="clieId != null">
+        #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="dpMoney != null">
+        #{dpMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="dpDate != null">
+        #{dpDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.DepositPayment">
+    update deposit_payment
+    <set>
+      <if test="dpInv != null">
+        dp_inv = #{dpInv,jdbcType=INTEGER},
+      </if>
+      <if test="dpInvDate != null">
+        dp_inv_date = #{dpInvDate,jdbcType=DATE},
+      </if>
+      <if test="clieId != null">
+        Clie_id = #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="dpMoney != null">
+        Dp_money = #{dpMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="dpDate != null">
+        Dp_date = #{dpDate,jdbcType=DATE},
+      </if>
+    </set>
+    where dp_id = #{dpId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.DepositPayment">
+    update deposit_payment
+    set dp_inv = #{dpInv,jdbcType=INTEGER},
+      dp_inv_date = #{dpInvDate,jdbcType=DATE},
+      Clie_id = #{clieId,jdbcType=INTEGER},
+      Dp_money = #{dpMoney,jdbcType=DECIMAL},
+      Dp_date = #{dpDate,jdbcType=DATE}
+    where dp_id = #{dpId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.DepositPayment">
+    <id column="dp_id" jdbcType="INTEGER" property="dpId" />
+    <result column="dp_inv" jdbcType="INTEGER" property="dpInv" />
+    <result column="dp_inv_date" jdbcType="DATE" property="dpInvDate" />
+    <result column="Clie_id" jdbcType="INTEGER" property="clieId" />
+    <result column="Dp_money" jdbcType="DECIMAL" property="dpMoney" />
+    <result column="Dp_date" jdbcType="DATE" property="dpDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dp_id, dp_inv, dp_inv_date, Clie_id, Dp_money, Dp_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deposit_payment
+    where dp_id = #{dpId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deposit_payment
+    where dp_id = #{dpId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.DepositPayment">
+    insert into deposit_payment (dp_id, dp_inv, dp_inv_date, 
+      Clie_id, Dp_money, Dp_date
+      )
+    values (#{dpId,jdbcType=INTEGER}, #{dpInv,jdbcType=INTEGER}, #{dpInvDate,jdbcType=DATE}, 
+      #{clieId,jdbcType=INTEGER}, #{dpMoney,jdbcType=DECIMAL}, #{dpDate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.DepositPayment">
+    insert into deposit_payment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dpId != null">
+        dp_id,
+      </if>
+      <if test="dpInv != null">
+        dp_inv,
+      </if>
+      <if test="dpInvDate != null">
+        dp_inv_date,
+      </if>
+      <if test="clieId != null">
+        Clie_id,
+      </if>
+      <if test="dpMoney != null">
+        Dp_money,
+      </if>
+      <if test="dpDate != null">
+        Dp_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dpId != null">
+        #{dpId,jdbcType=INTEGER},
+      </if>
+      <if test="dpInv != null">
+        #{dpInv,jdbcType=INTEGER},
+      </if>
+      <if test="dpInvDate != null">
+        #{dpInvDate,jdbcType=DATE},
+      </if>
+      <if test="clieId != null">
+        #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="dpMoney != null">
+        #{dpMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="dpDate != null">
+        #{dpDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.DepositPayment">
+    update deposit_payment
+    <set>
+      <if test="dpInv != null">
+        dp_inv = #{dpInv,jdbcType=INTEGER},
+      </if>
+      <if test="dpInvDate != null">
+        dp_inv_date = #{dpInvDate,jdbcType=DATE},
+      </if>
+      <if test="clieId != null">
+        Clie_id = #{clieId,jdbcType=INTEGER},
+      </if>
+      <if test="dpMoney != null">
+        Dp_money = #{dpMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="dpDate != null">
+        Dp_date = #{dpDate,jdbcType=DATE},
+      </if>
+    </set>
+    where dp_id = #{dpId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.DepositPayment">
+    update deposit_payment
+    set dp_inv = #{dpInv,jdbcType=INTEGER},
+      dp_inv_date = #{dpInvDate,jdbcType=DATE},
+      Clie_id = #{clieId,jdbcType=INTEGER},
+      Dp_money = #{dpMoney,jdbcType=DECIMAL},
+      Dp_date = #{dpDate,jdbcType=DATE}
+    where dp_id = #{dpId,jdbcType=INTEGER}
+  </update>
+</mapper>

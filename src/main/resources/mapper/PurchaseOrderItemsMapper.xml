@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhwang.invoicing.dao.PurchaseOrderItemsMapper">
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.PurchaseOrderItems">
+    <id column="poi_id" jdbcType="INTEGER" property="poiId" />
+    <result column="po_id" jdbcType="INTEGER" property="poId" />
+    <result column="comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="poi_amount" jdbcType="VARCHAR" property="poiAmount" />
+    <result column="purc_price" jdbcType="DECIMAL" property="purcPrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    poi_id, po_id, comm_id, poi_amount, purc_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from purchase_order_items
+    where poi_id = #{poiId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from purchase_order_items
+    where poi_id = #{poiId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.PurchaseOrderItems">
+    insert into purchase_order_items (poi_id, po_id, comm_id, 
+      poi_amount, purc_price)
+    values (#{poiId,jdbcType=INTEGER}, #{poId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, 
+      #{poiAmount,jdbcType=VARCHAR}, #{purcPrice,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.PurchaseOrderItems">
+    insert into purchase_order_items
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="poiId != null">
+        poi_id,
+      </if>
+      <if test="poId != null">
+        po_id,
+      </if>
+      <if test="commId != null">
+        comm_id,
+      </if>
+      <if test="poiAmount != null">
+        poi_amount,
+      </if>
+      <if test="purcPrice != null">
+        purc_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="poiId != null">
+        #{poiId,jdbcType=INTEGER},
+      </if>
+      <if test="poId != null">
+        #{poId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="poiAmount != null">
+        #{poiAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="purcPrice != null">
+        #{purcPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.PurchaseOrderItems">
+    update purchase_order_items
+    <set>
+      <if test="poId != null">
+        po_id = #{poId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="poiAmount != null">
+        poi_amount = #{poiAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="purcPrice != null">
+        purc_price = #{purcPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where poi_id = #{poiId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.PurchaseOrderItems">
+    update purchase_order_items
+    set po_id = #{poId,jdbcType=INTEGER},
+      comm_id = #{commId,jdbcType=INTEGER},
+      poi_amount = #{poiAmount,jdbcType=VARCHAR},
+      purc_price = #{purcPrice,jdbcType=DECIMAL}
+    where poi_id = #{poiId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yhwang.invoicing.entity.PurchaseOrderItems">
+    <id column="poi_id" jdbcType="INTEGER" property="poiId" />
+    <result column="po_id" jdbcType="INTEGER" property="poId" />
+    <result column="comm_id" jdbcType="INTEGER" property="commId" />
+    <result column="poi_amount" jdbcType="VARCHAR" property="poiAmount" />
+    <result column="purc_price" jdbcType="DECIMAL" property="purcPrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    poi_id, po_id, comm_id, poi_amount, purc_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from purchase_order_items
+    where poi_id = #{poiId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from purchase_order_items
+    where poi_id = #{poiId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhwang.invoicing.entity.PurchaseOrderItems">
+    insert into purchase_order_items (poi_id, po_id, comm_id, 
+      poi_amount, purc_price)
+    values (#{poiId,jdbcType=INTEGER}, #{poId,jdbcType=INTEGER}, #{commId,jdbcType=INTEGER}, 
+      #{poiAmount,jdbcType=VARCHAR}, #{purcPrice,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhwang.invoicing.entity.PurchaseOrderItems">
+    insert into purchase_order_items
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="poiId != null">
+        poi_id,
+      </if>
+      <if test="poId != null">
+        po_id,
+      </if>
+      <if test="commId != null">
+        comm_id,
+      </if>
+      <if test="poiAmount != null">
+        poi_amount,
+      </if>
+      <if test="purcPrice != null">
+        purc_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="poiId != null">
+        #{poiId,jdbcType=INTEGER},
+      </if>
+      <if test="poId != null">
+        #{poId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="poiAmount != null">
+        #{poiAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="purcPrice != null">
+        #{purcPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhwang.invoicing.entity.PurchaseOrderItems">
+    update purchase_order_items
+    <set>
+      <if test="poId != null">
+        po_id = #{poId,jdbcType=INTEGER},
+      </if>
+      <if test="commId != null">
+        comm_id = #{commId,jdbcType=INTEGER},
+      </if>
+      <if test="poiAmount != null">
+        poi_amount = #{poiAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="purcPrice != null">
+        purc_price = #{purcPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where poi_id = #{poiId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhwang.invoicing.entity.PurchaseOrderItems">
+    update purchase_order_items
+    set po_id = #{poId,jdbcType=INTEGER},
+      comm_id = #{commId,jdbcType=INTEGER},
+      poi_amount = #{poiAmount,jdbcType=VARCHAR},
+      purc_price = #{purcPrice,jdbcType=DECIMAL}
+    where poi_id = #{poiId,jdbcType=INTEGER}
+  </update>
+</mapper>
